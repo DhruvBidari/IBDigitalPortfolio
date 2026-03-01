@@ -381,7 +381,7 @@ var UNIT_PAGES = {
     heroTitle: "Unit 1: Kafka",
     heroSubtitle:
       "The Metamorphosis — identity, isolation, and the brutal logic of family obligation.",
-    heroBg: "/images/kafka.jpg",
+    heroBg: "/images/kafka3.jpg",
 
     hasTop5: true,
 
@@ -395,35 +395,37 @@ var UNIT_PAGES = {
       author: "Franz Kafka",
       focus: "Transformation / Alienation",
       links: [
-        { label: "Text", href: "PASTE_TEXT_LINK" },
-        { label: "Annotations", href: "PASTE_ANNOTATIONS_LINK" },
+        { label: "TTT", href: "javascript:void(0)" },
+        { label: "GIS", href: "javascript:void(0)" },
       ],
     },
 
     descriptionHtml:
-      "<p>Paste your real description here. You can write multiple paragraphs.</p>" +
-      "<p>This supports <strong>basic HTML</strong> like bold/italics and links.</p>",
+      "<p>The Metamorphosis by Franz Kafka explores alienation, identity, and the pressure of social expectations. The story follows Gregor Samsa, who awakens transformed into an insect and becomes increasingly isolated from his family. Kafka uses the absurd transformation to expose emotional distance and the fragility of human relationships.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1cqKbc4Tn1bwdNSVFZfdQPfYk-RXCpijA3llLEBn5WbY/edit?tab=t.0'>The Metamorphosis</a></p>" +
+      "<p><a href='https://docs.google.com/presentation/d/14TierkLCJqI98ikJAhtIn3vhkxY-hKaHWOjqz6gCu2I/edit?usp=sharing'>Table Talk Tasks</a></p>" +
+      "<p><a href='https://docs.google.com/document/d/1a1UKAqDX42kFbbzi9Rxn7V59n8yQUQBBkktSpZBVPLU/edit?usp=sharing'>Global Issue Statement</a></p>",
 
     top5: [
       {
-        title: "Author snapshot",
-        body: "Who Kafka was and what matters about his life/context for reading the story.",
+        title: "Alienation defines Gregor’s transformation.",
+        body: "Gregor’s physical change into an insect mirrors the emotional isolation he already experiences within his family and society.",
       },
       {
-        title: "Core themes",
-        body: "Alienation, labor, family duty, guilt, identity — the “Kafka logic” where the absurd is treated as normal.",
+        title: "The story critiques identity tied to productivity.",
+        body: "Gregor’s value to his family disappears once he can no longer work, exposing how identity is often reduced to economic usefulness.",
       },
       {
-        title: "New terms / techniques",
-        body: "Add the key vocab you learned this unit (ex: absurdism, alienation, symbolism, tone shift, etc.).",
+        title: "The work embodies the concept of the Kafkaesque.",
+        body: "Kafka presents an absurd, illogical situation treated as normal, creating a disturbing atmosphere of helplessness and existential anxiety.",
       },
       {
-        title: "Cultural & historical context",
-        body: "Anything you need to remember about the society/time that shapes the story’s meaning.",
+        title: "Symbolism reveals psychological and social confinement.",
+        body: "Symbolism in the novella reflects Gregor’s growing sense of guilt and confinement while illustrating the gradual deterioration of his relationship with his family.",
       },
       {
-        title: "What “you” take away",
-        body: "Your personal “so what”: what changed in your reading, thinking, writing, or discussion skills.",
+        title: "The novella explores existential questions about humanity.",
+        body: "By removing Gregor’s human form but preserving his consciousness, Kafka forces readers to question what truly defines being human.",
       },
     ],
   },
@@ -431,27 +433,57 @@ var UNIT_PAGES = {
   calvino: {
     pageTitle: "Unit 2: Calvino",
     heroTitle: "Unit 2: Calvino",
-    heroSubtitle: "Set this subtitle in JS.",
-    heroBg: "/images/calvino.jpg",
+    heroSubtitle:
+      "The Nonexistent Knight — identity, duty, and the fragile boundary between appearance and existence.",
+    heroBg: "/images/calvino3.jpg",
     hasTop5: true,
     slider: [
       { src: "/images/calvino.jpg", fit: "contain", alt: "Calvino slide" },
     ],
     details: {
-      text: "TITLE HERE",
+      text: "The Nonexistent Knight",
       author: "Italo Calvino",
-      focus: "FOCUS HERE",
-      links: [],
+      focus: "Identity / Existence",
+      links: [
+        { label: "TTT", href: "javascript:void(0)" },
+        { label: "GIS", href: "javascript:void(0)" },
+      ],
     },
-    descriptionHtml: "<p>Paste description.</p>",
-    top5: [],
+    descriptionHtml:
+      "<p>The Nonexistent Knight by Italo Calvino explores identity, duty, and the tension between appearance and reality. The story follows Agilulf, a knight who exists only through his strict adherence to rules and honor despite lacking a physical body. The Nonexistent Knight uses absurdity and satire to question what truly defines a person’s identity and purpose.</p>" +
+      "<p><a href='https://docs.google.com/presentation/d/14TierkLCJqI98ikJAhtIn3vhkxY-hKaHWOjqz6gCu2I/edit?usp=sharing'>Table Talk Tasks</a></p>" +
+      "<p><a href='https://docs.google.com/document/d/1DuOELpEbShJVovz4sKAAFSR7o1mQF4fm_GIKrXlM-T8/edit?usp=sharing'>Global Issue Statement</a></p>",
+    top5: [
+      {
+        title:
+          "Identity is constructed through action rather than physical existence.",
+        body: "Agilulf exists solely because of his discipline and adherence to rules, suggesting identity can be built through behavior and belief.",
+      },
+      {
+        title: "The novel uses satire to question social structures.",
+        body: "Calvino humorously critiques rigid systems like chivalry, exposing how institutions rely on performance rather than genuine meaning.",
+      },
+      {
+        title: "Appearance and reality often contradict each other.",
+        body: "Characters who appear strong or honorable are often flawed, while the nonexistent knight embodies perfect discipline without a body.",
+      },
+      {
+        title: "The story blends fantasy with philosophical reflection.",
+        body: "Calvino uses absurd situations to explore deeper questions about individuality, purpose, and authenticity.",
+      },
+      {
+        title: "Postmodern storytelling challenges traditional narrative.",
+        body: "The narrator’s voice and playful structure emphasize storytelling itself, reminding readers that meaning is constructed rather than fixed.",
+      },
+    ],
   },
 
   szymborska: {
     pageTitle: "Unit 3: Szymborska",
     heroTitle: "Unit 3: Szymborska",
-    heroSubtitle: "Set this subtitle in JS.",
-    heroBg: "/images/szymborska.webp",
+    heroSubtitle:
+      "Everyday moments revealing profound truths about human existence.",
+    heroBg: "/images/szymborska3.jpg",
     hasTop5: true,
     slider: [
       {
@@ -461,33 +493,69 @@ var UNIT_PAGES = {
       },
     ],
     details: {
-      text: "TITLE",
+      text: "A Note",
       author: "Wisława Szymborska",
-      focus: "FOCUS",
-      links: [],
+      focus: "Existence / Reflection",
+      links: [
+        { label: "TTT", href: "javascript:void(0)" },
+        { label: "GIS", href: "javascript:void(0)" },
+      ],
     },
-    descriptionHtml: "<p>Paste description.</p>",
-    top5: [],
+    descriptionHtml:
+      "<p>Wisława Szymborska writes poetry that reflects on everyday life, human nature, and the mysteries of existence. Her poems often use simple observations, among other literary techniques, to explore complex philosophical ideas about knowledge and what it truly means to be human.</p>" +
+      "<p><a href='https://docs.google.com/document/d/17hwReauWqncdVKfwnLrinhh5SZKQz3dZFDle4dRotRg/edit?usp=sharing'>Table Talk Tasks</a></p>" +
+      "<p><a href='https://docs.google.com/document/d/1hT1kmH7K6VA_KB3QTbiNurt2Xgt7TTh2Mo8jSYXpahA/edit?usp=sharing'>Global Issue Statement</a></p>",
+    top5: [
+      {
+        title: "Ordinary moments reveal profound philosophical ideas.",
+        body: "Szymborska uses simple observations about everyday life to explore larger questions about existence and human awareness.",
+      },
+      {
+        title: "Irony and curiosity drive her poetic voice.",
+        body: "Her poems often question assumptions and encourage readers to reconsider things they normally overlook.",
+      },
+      {
+        title: "Perspective shapes how humans understand reality.",
+        body: "Many poems highlight how limited human perception is when compared to the complexity of the universe.",
+      },
+      {
+        title: "Time and chance influence human life.",
+        body: "Szymborska frequently reflects on how coincidence, time, and small choices shape existence.",
+      },
+      {
+        title: "Poetry becomes a tool for reflection rather than certainty.",
+        body: "Instead of providing answers, her work invites readers to remain curious and thoughtful about the world.",
+      },
+    ],
   },
 
   performative: {
     pageTitle: "Performative Literacy Project",
     heroTitle: "Performative Literacy Project",
-    heroSubtitle: "Set this subtitle in JS.",
+    heroSubtitle:
+      "Visualizing isolation and transformation through interactive 3D space.",
     heroBg: "images/performativeLiteracy.png",
     hasTop5: false, // example: NO top 5
     slider: [
       {
-        src: "images/performativeLiteracy.png",
-        fit: "cover",
-        alt: "Performative slide",
+        src: "images/performativeLiteracy2.png",
+        fit: "contain",
+        alt: "Lit motion slide 1",
+      },
+      {
+        src: "images/performativeLiteracy3.png",
+        fit: "contain",
+        alt: "Lit motion slide 2",
       },
     ],
     details: {
       text: "Project",
-      author: "—",
+      author: "Dhruv & Max",
       focus: "Performance / Literacy",
-      links: [],
+      links: [
+        { label: "Description", href: "javascript:void(0)" },
+        { label: "Site", href: "javascript:void(0)" },
+      ],
     },
     descriptionHtml: "<p>Paste description.</p>",
   },
@@ -495,32 +563,58 @@ var UNIT_PAGES = {
   "lit-motion": {
     pageTitle: "Literature in Motion",
     heroTitle: "Literature in Motion",
-    heroSubtitle: "Set this subtitle in JS.",
-    heroBg: "images/yourLitMotionHero.png",
-    hasTop5: true,
-    slider: [],
+    heroSubtitle:
+      "Translating literary ideas into physical movement and visual symbolism.",
+    heroBg: "images/literatureInMotion2.jpg",
+    hasTop5: false,
+    slider: [
+      {
+        src: "images/literatureInMotion.jpg",
+        fit: "contain",
+        alt: "Lit motion slide 1",
+      },
+      {
+        src: "images/literatureInMotion.jpg",
+        fit: "contain",
+        alt: "Lit motion slide 2",
+      },
+    ],
     details: {
       text: "Project",
-      author: "—",
+      author: "Franz Kafka",
       focus: "Motion / Interpretation",
-      links: [],
+      links: [
+        { label: "Script", href: "javascript:void(0)" },
+        { label: "Planning", href: "javascript:void(0)" },
+      ],
     },
     descriptionHtml: "<p>Paste description.</p>",
-    top5: [],
   },
 
   "semester1-reflection": {
     pageTitle: "Semester 1 Reflection",
     heroTitle: "Semester 1 Reflection",
-    heroSubtitle: "Set this subtitle in JS.",
-    heroBg: "images/yourReflectionHero.png",
+    heroSubtitle:
+      "Reflecting on growth in literary analysis, interpretation, and creative engagement with texts.",
+    heroBg: "images/reflectionSemester1-1.jpg",
     hasTop5: false,
-    slider: [],
+    slider: [
+      {
+        src: "images/reflectionSemester1-2.jpg",
+        fit: "contain",
+        alt: "Kafka slide 1",
+      },
+      {
+        src: "images/reflectionSemester1-3.jpg",
+        fit: "contain",
+        alt: "Kafka slide 2",
+      },
+    ],
     details: {
       text: "Reflection",
       author: "Dhruv Bidari",
       focus: "Growth / Skills",
-      links: [],
+      links: [{ label: "None", href: "javascript:void(0)" }],
     },
     descriptionHtml: "<p>Paste reflection text.</p>",
   },
@@ -692,8 +786,7 @@ function buildUnitPage(data) {
       var aa = document.createElement("a");
       aa.className = "unit-link";
       aa.href = lk.href || "#";
-      aa.target = "_blank";
-      aa.rel = "noopener noreferrer";
+      aa.target = "_self";
       aa.textContent = lk.label || "Link";
       linksWrap.appendChild(aa);
       if (i !== links.length - 1) {

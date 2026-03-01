@@ -43,6 +43,10 @@ body,
   scroll-margin-top: 140px;
 }
 
+.unit-link {
+  cursor: default !important;
+}
+
 /* ===== CV MODAL tweaks to match existing sliders ===== */
 body.cv-modal-open {
   overflow: hidden !important;
@@ -1452,6 +1456,10 @@ a:hover {
   margin-top: 25px;
 }
 
+.unit-desc-mode a {
+  text-decoration: 1px solid underline !important;
+}
+
 /* "red theme" links inside unit sections */
 .unit-link,
 .unit-summary a,
@@ -1564,6 +1572,10 @@ a:hover {
   pointer-events: auto;
 }
 
+.unit-desc-mode p:last-child {
+  margin-bottom: 0 !important;
+}
+
 /* Scroll anchor so "Top 5" lands with the whole card visible */
 .unit-scroll-anchor {
   height: 1px;
@@ -1663,8 +1675,8 @@ a:hover {
 .top5-body h4 {
   margin: 0 0 6px 0;
   font-weight: 900;
-  font-size: 15px; /* smaller title */
-  line-height: 1.15; /* tighter so it aligns with the number */
+  font-size: 18px;
+  line-height: 1.15;
 }
 
 .top5-body {
