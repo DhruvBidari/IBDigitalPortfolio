@@ -187,13 +187,13 @@ body.cv-modal-open {
 }
 
 ::-moz-selection {
-  background: #000;
-  color: #fff;
+  background: #c43d3d;
+  color: #ffffff;
 }
 
 ::selection {
-  background: #000;
-  color: #fff;
+  background: #c43d3d;
+  color: #ffffff;
 }
 
 a {
@@ -2786,17 +2786,11 @@ figure.dotted-bg:before {
 
 /* Portfolio description: clamp + Learn more toggle */
 .portfolio-description .desc-text {
-  /* display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden; */
   font-size: 14px;
 }
 
 .portfolio-description.is-expanded .desc-text {
   display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
 }
 
 .unslate_co--footer {

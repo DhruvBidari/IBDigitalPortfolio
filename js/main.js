@@ -1655,7 +1655,7 @@ var portfolioItemClick = function () {
       autoAlpha: 0,
       visibility: "hidden",
       onComplete: function () {
-        TweenMax.set(".portfolio-wrapper", { height: 0 });
+        TweenMax.set(".portfolio-wrapper", { display: "none" });
 
         var pSingleHolder = $("#portfolio-single-holder");
         var content = buildPortfolioSingleHTML(item);
@@ -1727,6 +1727,7 @@ var portfolioItemClick = function () {
     TweenMax.set(".portfolio-wrapper", {
       visibility: "visible",
       height: "auto",
+      display: "block",
     });
 
     TweenMax.to(".portfolio-single-inner", 1, {
