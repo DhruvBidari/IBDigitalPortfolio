@@ -161,35 +161,6 @@ body.cv-modal-open {
   padding: 24px;
 }
 
-#cvModalSlider {
-  width: 100%;
-  height: min(44vh, 420px);
-  max-height: 420px;
-}
-
-#cvModalSlider .cv-slide {
-  width: 100%;
-  height: min(44vh, 420px);
-}
-
-#cvModalSlider img {
-  width: 100%;
-  height: 100%;
-}
-
-.cv-fit-cover {
-  object-fit: cover;
-}
-
-.cv-fit-contain {
-  object-fit: contain;
-  background: black;
-}
-
-.cv-modal__actions {
-  margin-top: 18px;
-}
-
 ::-moz-selection {
   background: #c43d3d;
   color: #ffffff;
@@ -1405,49 +1376,6 @@ a:hover {
   position: relative;
 }
 
-.error-pill {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 10px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
-  background: rgba(214, 52, 71, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.error-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.error-label {
-  opacity: 0.75;
-}
-
-.error-route {
-  color: #fff;
-  font-weight: 800;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.error-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .error-link-btn {
   white-space: nowrap;
 }
@@ -2400,34 +2328,6 @@ figure.dotted-bg:before {
   }
 }
 
-.testimonial-v1 .testimonial-inner-bg .quote {
-  display: block;
-  font-size: 80px;
-  font-family: "Georgia", serif;
-}
-
-.testimonial-v1 .testimonial-author-info {
-  z-index: 2;
-  margin-top: -45px;
-  position: relative;
-}
-
-.testimonial-v1 .testimonial-author-info img {
-  width: 90px;
-  margin: 0 auto 30px auto;
-  border-radius: 50%;
-}
-
-.testimonial-v1 .testimonial-author-info h3 {
-  font-size: 20px;
-  margin: 0;
-}
-
-.testimonial-v1 .testimonial-author-info .position {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .testimonial-slider .owl-stage,
 .single-slider .owl-stage {
   overflow: hidden;
@@ -2976,93 +2876,6 @@ span.error {
 .unslate_co--sticky:before {
   content: "";
   display: table;
-}
-
-.comment-form-wrap {
-  clear: both;
-}
-
-.comment-list {
-  padding: 0;
-  margin: 0;
-}
-
-.comment-list .children {
-  padding: 50px 0 0 40px;
-  margin: 0;
-  float: left;
-  width: 100%;
-}
-
-.comment-list li {
-  padding: 0;
-  margin: 0 0 30px 0;
-  float: left;
-  width: 100%;
-  clear: both;
-  list-style: none;
-}
-
-.comment-list li .vcard {
-  width: 80px;
-  float: left;
-}
-
-.comment-list li .vcard img {
-  width: 50px;
-  border-radius: 50%;
-}
-
-.comment-list li .comment-body {
-  float: right;
-  width: calc(100% - 80px);
-}
-
-.comment-list li .comment-body h3 {
-  font-size: 20px;
-}
-
-.comment-list li .comment-body .meta {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-
-.comment-list li .comment-body .reply {
-  padding: 7px 15px;
-  background: gray;
-  color: #fff;
-  text-transform: uppercase;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.1rem;
-}
-
-.comment-list li .comment-body .reply:hover {
-  color: #fff;
-  background: #8c8c8c;
-}
-
-.categories_tags {
-  font-weight: bold;
-}
-
-.post-single-navigation a {
-  line-height: 1.5;
-  font-weight: bold;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  display: inline-block;
-}
-
-.post-single-navigation a span {
-  margin-bottom: 10px;
-  font-size: 11px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
 }
 
 .lines-wrap {
