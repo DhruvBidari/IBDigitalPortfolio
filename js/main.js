@@ -22,7 +22,9 @@ $(document).ready(function () {
   var isIndex =
     path.endsWith("/index.html") ||
     path === "/index.html" ||
-    path.endsWith("index.html");
+    path.endsWith("index.html") ||
+    path.endsWith("/ibdigitalportfolio") ||
+    path.endsWith("/ibdigitalportfolio/");
 
   var hash = window.location.hash;
 
@@ -387,7 +389,9 @@ var UNIT_PAGES = {
 
     slider: [
       { src: "/images/kafka.jpg", fit: "contain", alt: "Kafka slide 1" },
-      { src: "/images/kafka.jpg", fit: "cover", alt: "Kafka slide 2" },
+      { src: "/images/kafka2.jpg", fit: "contain", alt: "Kafka slide 2" },
+      { src: "/images/kafka4.png", fit: "contain", alt: "Kafka slide 3" },
+      { src: "/images/kafka.jpg", fit: "contain", alt: "Kafka slide 4" },
     ],
 
     details: {
@@ -1361,7 +1365,9 @@ var initIndexHashRouting = function () {
   var isIndex =
     path.endsWith("/index.html") ||
     path === "/index.html" ||
-    path.endsWith("index.html");
+    path.endsWith("index.html") ||
+    path.endsWith("/ibdigitalportfolio") ||
+    path.endsWith("/ibdigitalportfolio/");
 
   if (!isIndex) return;
 
