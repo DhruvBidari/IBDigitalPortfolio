@@ -639,7 +639,7 @@ var UNIT_PAGES = {
       links: [{ label: "None", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>An interactive 3D model of Gregor Samsa’s house created using Three.js. The project visually represents the setting of The Metamorphosis through animation and spatial exploration, allowing viewers to experience the confined environment that reflects Gregor’s isolation.</p>",
+      "<p>During the first semester of IB English, I developed a deeper comprehension of how literature conveys intricate concepts through structure, symbolism, and perspective. Examining the writings of Kafka, Calvino, and Szymborska revealed how authors use unusual scenarios and thoughtful reflections to explore questions about identity and the nature of human existence. I gained greater confidence in recognizing literary devices and explaining how they influence the meaning of a text. Class discussions and consistent writing tasks helped me realize that interpretation often changes depending on the reader’s perspective. Creative projects, such as constructing a 3D model of Gregor's home and coding a robot to symbolize a literary journey, encouraged me to think about literature in ways that extended beyond conventional analysis. These experiences allowed me to move beyond simply understanding the plot and instead reflect on the reasons authors structure their stories in particular ways. Throughout the semester, I strengthened my ability to connect literary techniques to broader themes and ideas. By the end of the term, I found myself engaging with literature with greater curiosity and a more analytical perspective, rather than simply reading a text at face value.</p>",
   },
 };
 
@@ -1415,6 +1415,9 @@ var initIndexHashRouting = function () {
 
   // helper: set hash without spamming history
   function setHash(id) {
+    // If a portfolio single is open, NEVER let scroll-routing change the URL hash
+    if (window.__portfolioSingleOpen) return;
+
     // If we are currently smooth-scrolling due to a click, do NOT change the URL
     if (
       window.__suppressHashRoutingUntil &&
@@ -1770,6 +1773,20 @@ var portfolioItemClick = function () {
       ease: Power4.easeOut,
     });
 
+    // Lock "active section" + URL while portfolio single is open
+    window.__portfolioSingleOpen = true;
+
+    // Prevent the scroll-based hash router from fighting during this transition
+    window.__suppressHashRoutingUntil = Date.now() + 2500;
+
+    // Force URL to stay on portfolio while opening
+    try {
+      history.replaceState(null, "", "#portfolio-section");
+    } catch (e) {
+      // fallback
+      window.location.hash = "portfolio-section";
+    }
+
     $("html, body").animate(
       { scrollTop: $("#portfolio-section").offset().top - 50 },
       700,
@@ -1842,6 +1859,16 @@ var portfolioItemClick = function () {
   });
 
   $("body").on("click", ".js-close-portfolio", function () {
+    // Unlock hash routing again (after we finish scrolling back to portfolio)
+    window.__portfolioSingleOpen = false;
+    window.__suppressHashRoutingUntil = Date.now() + 2000;
+
+    // Keep the URL pinned to portfolio when closing too
+    try {
+      history.replaceState(null, "", "#portfolio-section");
+    } catch (e) {
+      window.location.hash = "portfolio-section";
+    }
     setTimeout(function () {
       $("html, body").animate(
         { scrollTop: $("#portfolio-section").offset().top - 50 },
