@@ -383,15 +383,15 @@ var UNIT_PAGES = {
     heroTitle: "Unit 1: Kafka",
     heroSubtitle:
       "The Metamorphosis — identity, isolation, and the brutal logic of family obligation.",
-    heroBg: "/images/kafka3.jpg",
+    heroBg: "images/kafka3.jpg",
 
     hasTop5: true,
 
     slider: [
-      { src: "/images/kafka.jpg", fit: "contain", alt: "Kafka slide 1" },
-      { src: "/images/kafka2.jpg", fit: "contain", alt: "Kafka slide 2" },
-      { src: "/images/kafka4.png", fit: "contain", alt: "Kafka slide 3" },
-      { src: "/images/kafka.jpg", fit: "contain", alt: "Kafka slide 4" },
+      { src: "images/kafka.jpg", fit: "contain", alt: "Kafka slide 1" },
+      { src: "images/kafka2.jpg", fit: "contain", alt: "Kafka slide 2" },
+      { src: "images/kafka4.png", fit: "contain", alt: "Kafka slide 3" },
+      { src: "images/kafka5.png", fit: "contain", alt: "Kafka slide 4" },
     ],
 
     details: {
@@ -439,10 +439,12 @@ var UNIT_PAGES = {
     heroTitle: "Unit 2: Calvino",
     heroSubtitle:
       "The Nonexistent Knight — identity, duty, and the fragile boundary between appearance and existence.",
-    heroBg: "/images/calvino3.jpg",
+    heroBg: "images/calvino3.jpg",
     hasTop5: true,
     slider: [
-      { src: "/images/calvino.jpg", fit: "contain", alt: "Calvino slide" },
+      { src: "images/calvino.jpg", fit: "contain", alt: "Calvino slide 1" },
+      { src: "images/calvino2.jpg", fit: "contain", alt: "Calvino slide 2" },
+      { src: "images/calvino4.png", fit: "contain", alt: "Calvino slide 3" },
     ],
     details: {
       text: "The Nonexistent Knight",
@@ -487,13 +489,23 @@ var UNIT_PAGES = {
     heroTitle: "Unit 3: Szymborska",
     heroSubtitle:
       "Everyday moments revealing profound truths about human existence.",
-    heroBg: "/images/szymborska3.jpg",
+    heroBg: "images/szymborska3.jpg",
     hasTop5: true,
     slider: [
       {
-        src: "/images/szymborska.webp",
+        src: "images/szymborska.webp",
         fit: "contain",
-        alt: "Szymborska slide",
+        alt: "Szymborska slide 1",
+      },
+      {
+        src: "images/szymborska2.webp",
+        fit: "contain",
+        alt: "Szymborska slide 2",
+      },
+      {
+        src: "images/szymborska4.png",
+        fit: "contain",
+        alt: "Szymborska slide 3",
       },
     ],
     details: {
@@ -561,7 +573,10 @@ var UNIT_PAGES = {
         { label: "Site", href: "javascript:void(0)" },
       ],
     },
-    descriptionHtml: "<p>Paste description.</p>",
+    descriptionHtml:
+      "<p>An interactive 3D model of Gregor Samsa’s house created using Three.js. The project visually represents the setting of The Metamorphosis through animation and spatial exploration, allowing viewers to experience the confined environment that reflects Gregor’s isolation.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1eeWTNScjrS4lFi2wrehJnssYotv3o8eSZY-_FjwCEV4/edit?usp=sharing'>Description</a></p>" +
+      "<p><a href='https://dhruvbidari.github.io/Dhruv-Max---Performative-Literacy-Final-Assignment/'>View the Project</a></p>",
   },
 
   "lit-motion": {
@@ -578,7 +593,7 @@ var UNIT_PAGES = {
         alt: "Lit motion slide 1",
       },
       {
-        src: "images/literatureInMotion.jpg",
+        src: "images/literatureInMotion3.webp",
         fit: "contain",
         alt: "Lit motion slide 2",
       },
@@ -592,7 +607,10 @@ var UNIT_PAGES = {
         { label: "Planning", href: "javascript:void(0)" },
       ],
     },
-    descriptionHtml: "<p>Paste description.</p>",
+    descriptionHtml:
+      "<p>A group project where we programmed a Dash robot to physically represent the themes and literary techniques in The Sudden Walk. Through movement, speed changes, and breaking out of a boxed space, the robot symbolized the character’s impulsive decision and the tension between confinement and freedom.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1Zd56kPgHFehkEnoX-q9PeNqZ1ecOoJUNCzZ3KhbJScQ/edit?tab=t.0'>Description</a></p>" +
+      "<p><a href='https://docs.google.com/document/d/1DTnRTs0Hs5wLnrzwoZ6GzmEepdRcyZ-Ol6QeHrPx1Lk/edit?usp=sharing'>View our Script</a></p>",
   },
 
   "semester1-reflection": {
@@ -620,7 +638,8 @@ var UNIT_PAGES = {
       focus: "Growth / Skills",
       links: [{ label: "None", href: "javascript:void(0)" }],
     },
-    descriptionHtml: "<p>Paste reflection text.</p>",
+    descriptionHtml:
+      "<p>An interactive 3D model of Gregor Samsa’s house created using Three.js. The project visually represents the setting of The Metamorphosis through animation and spatial exploration, allowing viewers to experience the confined environment that reflects Gregor’s isolation.</p>",
   },
 };
 
@@ -1559,7 +1578,7 @@ var unitDescToggle = function () {
     setMode("top5");
   }
 
-  // if fonts/images load later and change height, keep it correct
+  // if fontsimages load later and change height, keep it correct
   window.addEventListener("resize", function () {
     var current =
       document
