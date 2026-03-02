@@ -1254,10 +1254,16 @@ var mobileToggleClick = function () {
 var onePageNavigation = function () {
   function isIndexPage() {
     var path = (window.location.pathname || "").toLowerCase();
+
+    // GitHub Pages serves index.html at the folder root without showing index.html in the URL
+    // Example: /IBDigitalPortfolio or /IBDigitalPortfolio/
+    var looksLikeFolderRoot = path.endsWith("/") || !path.includes(".html");
+
     return (
       path.endsWith("/index.html") ||
       path === "/index.html" ||
-      path.endsWith("index.html")
+      path.endsWith("index.html") ||
+      looksLikeFolderRoot
     );
   }
 
@@ -1362,12 +1368,14 @@ var onePageNavigation = function () {
 
 var initIndexHashRouting = function () {
   var path = (window.location.pathname || "").toLowerCase();
+
+  var looksLikeFolderRoot = path.endsWith("/") || !path.includes(".html");
+
   var isIndex =
     path.endsWith("/index.html") ||
     path === "/index.html" ||
     path.endsWith("index.html") ||
-    path.endsWith("/ibdigitalportfolio") ||
-    path.endsWith("/ibdigitalportfolio/");
+    looksLikeFolderRoot;
 
   if (!isIndex) return;
 
