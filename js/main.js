@@ -13,24 +13,53 @@ var CV_MODAL_DATA = {
     "<p>Paragraph 2: Put your second long paragraph here. You can include links, bold text, etc., and it will appear below the slider.</p>",
 };
 
-$(document).ready(function () {
-  // Always reset to top on reload (your current behavior)
-  $("html, body").scrollTop(0);
+(function () {
+  var path = (window.location.pathname || "").toLowerCase();
 
-  // BUT: if we're on index.html with a hash, smooth scroll to it
+  if (path.endsWith("/portfolioindividual2.html")) {
+    var from =
+      window.location.pathname + window.location.search + window.location.hash;
+
+    window.location.replace("404.html");
+  }
+})();
+
+$(document).ready(function () {
   var path = (window.location.pathname || "").toLowerCase();
   var isIndex =
     path.endsWith("/index.html") ||
     path === "/index.html" ||
     path.endsWith("index.html") ||
     path.endsWith("/ibdigitalportfolio") ||
-    path.endsWith("/ibdigitalportfolio/");
+    path.endsWith("/ibdigitalportfolio/") ||
+    path.endsWith("/") ||
+    !path.includes(".html");
 
-  var hash = window.location.hash;
+  function normalizeHash(hash) {
+    if (hash === "#about-us") return "#about-section";
+    if (hash === "#about") return "#about-section";
+    if (hash === "#portfolio-section") return "#semester-1-portfolio-section";
+    return hash;
+  }
 
-  if (isIndex && hash && $(hash).length) {
-    // wait a tick so layout/nav height is correct
-    setTimeout(function () {
+  function refreshAnimations() {
+    try {
+      if (typeof AOS !== "undefined") AOS.refreshHard();
+    } catch (e) {}
+
+    try {
+      $(window).trigger("resize").trigger("scroll");
+    } catch (e) {}
+  }
+
+  function scrollToInitialHash() {
+    if (!isIndex) return;
+
+    var hash = normalizeHash(window.location.hash);
+
+    if (hash && $(hash).length) {
+      window.__suppressHashRoutingUntil = Date.now() + 2600;
+
       var navH = ($(".unslate_co--site-nav").outerHeight() || 0) + 20;
 
       $("html, body")
@@ -39,11 +68,31 @@ $(document).ready(function () {
           {
             scrollTop: $(hash).offset().top - navH,
           },
-          1000,
-          "easeInOutExpo"
+          850,
+          "easeInOutExpo",
+          function () {
+            try {
+              history.replaceState(null, "", hash);
+            } catch (e) {
+              window.location.hash = hash;
+            }
+
+            refreshAnimations();
+            setTimeout(refreshAnimations, 150);
+            setTimeout(refreshAnimations, 500);
+          }
         );
-    }, 60);
+
+      return;
+    }
+
+    $("html, body").scrollTop(0);
   }
+
+  $(window).on("load pageshow", function () {
+    setTimeout(scrollToInitialHash, 250);
+    setTimeout(scrollToInitialHash, 850);
+  });
 });
 
 (function () {
@@ -77,7 +126,8 @@ AOS.init({
   duration: 800,
   easing: "ease",
   once: true,
-  offset: -100,
+  offset: 45,
+  mirror: false,
 });
 
 jQuery(function ($) {
@@ -87,6 +137,7 @@ jQuery(function ($) {
   mobileToggleClick();
   onePageNavigation();
   initIndexHashRouting();
+  hardHomeReloadLinks();
   siteIstotope();
   portfolioItemClick();
   unitDescToggle();
@@ -98,6 +149,16 @@ jQuery(function ($) {
   contactForm();
   stickyFillPlugin();
   animateReveal();
+
+  setTimeout(function () {
+    if (typeof AOS !== "undefined") AOS.refreshHard();
+    $(window).trigger("resize").trigger("scroll");
+  }, 300);
+
+  setTimeout(function () {
+    if (typeof AOS !== "undefined") AOS.refreshHard();
+    $(window).trigger("resize").trigger("scroll");
+  }, 1000);
 
   // Unit template router (only runs if unit.html elements exist)
   unitPageRouter();
@@ -378,6 +439,244 @@ var UNIT_PAGE_LINKS = {
 };
 
 var UNIT_PAGES = {
+  duffy: {
+    pageTitle: "Unit 4: Duffy",
+    heroTitle: "Unit 4: Duffy",
+    heroSubtitle:
+      "Semester 2 work focused on poetry, voice, memory, and identity.",
+    heroBg: "images/post_1.jpg",
+    hasTop5: true,
+    slider: [
+      { src: "images/post_1.jpg", fit: "contain", alt: "Duffy slide 1" },
+      { src: "images/post_2.jpg", fit: "contain", alt: "Duffy slide 2" },
+    ],
+    details: {
+      text: "Poetry",
+      author: "Carol Ann Duffy",
+      focus: "Voice / Memory / Identity",
+      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This Semester 2 unit explores Duffy's poetry through voice, memory, identity, and perspective. Replace this placeholder with your final description and artifact links.</p>",
+    top5: [
+      {
+        title: "Voice reveals identity.",
+        body: "Duffy often uses speakers whose voices expose personal conflict, memory, and power.",
+      },
+      {
+        title: "Perspective shapes meaning.",
+        body: "The speaker's point of view controls how the reader understands emotion and experience.",
+      },
+      {
+        title: "Memory is unstable.",
+        body: "Duffy's poetry often presents memory as emotional, selective, and shaped by time.",
+      },
+      {
+        title: "Language creates intimacy.",
+        body: "Diction, imagery, and structure make private experiences feel immediate and human.",
+      },
+      {
+        title: "Poetry critiques social expectations.",
+        body: "Many poems challenge assumptions about gender, relationships, identity, and power.",
+      },
+    ],
+  },
+
+  "college-career": {
+    pageTitle: "Unit 5: College & Career",
+    heroTitle: "Unit 5: College & Career",
+    heroSubtitle:
+      "Connecting IB English skills to future goals, communication, and reflection.",
+    heroBg: "images/post_2.jpg",
+    hasTop5: true,
+    slider: [
+      { src: "images/post_2.jpg", fit: "contain", alt: "College slide 1" },
+      { src: "images/post_3.jpg", fit: "contain", alt: "College slide 2" },
+    ],
+    details: {
+      text: "College & Career",
+      author: "Dhruv Bidari",
+      focus: "Reflection / Future Goals",
+      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This Semester 2 unit connects English skills to college, career, communication, and future planning. Replace this placeholder with your final description and artifact links.</p>",
+    top5: [
+      {
+        title: "Reflection clarifies growth.",
+        body: "Looking back at past work helps show how skills and goals have developed.",
+      },
+      {
+        title: "Communication matters beyond class.",
+        body: "Writing, speaking, and analysis become useful in college, career, and leadership contexts.",
+      },
+      {
+        title: "Purpose strengthens writing.",
+        body: "Clear goals make personal and academic writing more focused and meaningful.",
+      },
+      {
+        title: "Audience changes choices.",
+        body: "Strong communication depends on adapting tone, structure, and detail to the audience.",
+      },
+      {
+        title: "IB skills transfer forward.",
+        body: "Analysis, reflection, and argument-building are useful beyond IB English.",
+      },
+    ],
+  },
+
+  ng: {
+    pageTitle: "Unit 6: Ng",
+    heroTitle: "Unit 6: Ng",
+    heroSubtitle:
+      "Exploring identity, family pressure, silence, and external expectations.",
+    heroBg: "images/post_3.jpg",
+    hasTop5: true,
+    slider: [
+      { src: "images/post_3.jpg", fit: "contain", alt: "Ng slide 1" },
+      { src: "images/post_4.jpg", fit: "contain", alt: "Ng slide 2" },
+    ],
+    details: {
+      text: "Everything I Never Told You",
+      author: "Celeste Ng",
+      focus: "Identity / Family / Expectations",
+      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This unit explores Celeste Ng's treatment of identity, family pressure, silence, and external expectations. Replace this placeholder with your final description and artifact links.</p>",
+    top5: [
+      {
+        title: "Silence damages relationships.",
+        body: "Characters often hide their feelings, creating distance and misunderstanding within the family.",
+      },
+      {
+        title: "Expectations shape identity.",
+        body: "Family and social pressure push characters toward roles they may not truly want.",
+      },
+      {
+        title: "Belonging is complicated.",
+        body: "Ng explores how race, family, and gender affect a person's sense of belonging.",
+      },
+      {
+        title: "Private pain becomes invisible.",
+        body: "The novel shows how people can suffer deeply while appearing fine from the outside.",
+      },
+      {
+        title: "Identity needs selfhood.",
+        body: "The story warns that living only for others' expectations can erase authentic identity.",
+      },
+    ],
+  },
+
+  intertextuality: {
+    pageTitle: "Intertextuality Literacy Project",
+    heroTitle: "Intertextuality Literacy Project",
+    heroSubtitle:
+      "Connecting texts, themes, and global issues across the IB English course.",
+    heroBg: "images/post_4.jpg",
+    hasTop5: false,
+    slider: [
+      {
+        src: "images/post_4.jpg",
+        fit: "contain",
+        alt: "Intertextuality slide 1",
+      },
+      {
+        src: "images/post_5.jpg",
+        fit: "contain",
+        alt: "Intertextuality slide 2",
+      },
+    ],
+    details: {
+      text: "Project",
+      author: "Dhruv Bidari",
+      focus: "Intertextuality / Global Issues",
+      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This project connects multiple texts and ideas from the IB English course through shared themes, techniques, and global issues. Replace this placeholder with your final description and artifact links.</p>",
+  },
+
+  "food-for-thought": {
+    pageTitle: "Food for Thought",
+    heroTitle: "Food for Thought",
+    heroSubtitle:
+      "A Semester 2 artifact connecting reflection, discussion, and course ideas.",
+    heroBg: "images/post_5.jpg",
+    hasTop5: false,
+    slider: [
+      {
+        src: "images/post_5.jpg",
+        fit: "contain",
+        alt: "Food for Thought slide 1",
+      },
+      {
+        src: "images/post_1.jpg",
+        fit: "contain",
+        alt: "Food for Thought slide 2",
+      },
+    ],
+    details: {
+      text: "Artifact",
+      author: "Dhruv Bidari",
+      focus: "Reflection / Discussion",
+      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This Semester 2 artifact represents reflection and discussion connected to major course ideas. Replace this placeholder with your final description and artifact links.</p>",
+  },
+
+  "semester2-reflection": {
+    pageTitle: "Semester 2 Reflection",
+    heroTitle: "Semester 2 Reflection",
+    heroSubtitle:
+      "Reflecting on growth, skills, and learning across the second semester.",
+    heroBg: "images/reflectionSemester1-1.jpg",
+    hasTop5: true,
+    slider: [
+      {
+        src: "images/reflectionSemester1-1.jpg",
+        fit: "contain",
+        alt: "Semester 2 reflection slide 1",
+      },
+      {
+        src: "images/reflectionSemester1-2.jpg",
+        fit: "contain",
+        alt: "Semester 2 reflection slide 2",
+      },
+    ],
+    details: {
+      text: "Reflection",
+      author: "Dhruv Bidari",
+      focus: "Growth / Learning / Analysis",
+      links: [{ label: "Reflection", href: "javascript:void(0)" }],
+    },
+    descriptionHtml:
+      "<p>This reflection focuses on my growth throughout Semester 2 of IB English. Replace this placeholder with your final reflection and artifact links.</p>",
+    top5: [
+      {
+        title: "My analysis became more specific.",
+        body: "Semester 2 helped me connect authorial choices more directly to larger meanings.",
+      },
+      {
+        title: "I improved my use of evidence.",
+        body: "I became better at choosing evidence that clearly supports my interpretation.",
+      },
+      {
+        title: "I made stronger text connections.",
+        body: "I learned to compare texts through shared ideas instead of only surface similarities.",
+      },
+      {
+        title: "Reflection helped me see growth.",
+        body: "Looking back at my work made my progress more visible and concrete.",
+      },
+      {
+        title: "IB English became more purposeful.",
+        body: "The course helped me see literature as a way to study identity, society, and human behavior.",
+      },
+    ],
+  },
+
   kafka: {
     pageTitle: "Unit 1: Kafka",
     heroTitle: "Unit 1: Kafka",
@@ -901,129 +1200,85 @@ function buildUnitSlider(slides) {
 }
 
 var siteIstotope = function () {
-  var $container = $("#posts");
+  var $containers = $("#posts, #posts-semester-2, .portfolio-posts").filter(
+    function () {
+      return $(this).length && $(this).find(".item").length;
+    }
+  );
 
-  if (!$container.length) return;
+  if (!$containers.length) return;
 
-  $container.isotope({
-    itemSelector: ".item",
-    percentPosition: true,
-    masonry: {
-      columnWidth: ".item",
-    },
-  });
-
-  function debounce(fn, wait) {
-    var t;
-    return function () {
-      clearTimeout(t);
-      t = setTimeout(fn, wait);
-    };
+  function layoutAll() {
+    $containers.each(function () {
+      var $container = $(this);
+      if ($container.data("isotope")) {
+        $container.isotope({ sortBy: "originalOrder" });
+        $container.isotope("layout");
+      }
+    });
   }
 
-  var relayout = debounce(function () {
-    if ($container && $container.data("isotope")) {
-      $container.isotope("layout");
-    }
-  }, 60);
+  $containers.each(function () {
+    var $container = $(this);
 
-  $container.isotope({ filter: "*" });
+    $container.isotope({
+      itemSelector: ".item",
+      percentPosition: true,
+      transitionDuration: "0.35s",
+      getSortData: {
+        originalOrder: function (itemElem) {
+          return $(itemElem).index();
+        },
+      },
+      sortBy: "originalOrder",
+      masonry: {
+        columnWidth: ".item",
+      },
+    });
+
+    $container.imagesLoaded().always(function () {
+      $container.isotope({ sortBy: "originalOrder" });
+      $container.isotope("layout");
+      setTimeout(layoutAll, 150);
+      setTimeout(layoutAll, 500);
+    });
+
+    $container.imagesLoaded().progress(function () {
+      $container.isotope("layout");
+    });
+  });
 
   $("#filters").on("click", "a", function (e) {
     e.preventDefault();
-    var filterValue = $(this).attr("data-filter");
-    $container.isotope({ filter: filterValue });
-    $("#filters a").removeClass("active");
-    $(this).addClass("active");
-    $container.isotope("layout");
-  });
 
-  $(window).on("load", function () {
-    $container.imagesLoaded().always(function () {
-      $container.isotope("layout");
-      setTimeout(function () {
-        $container.isotope("layout");
-      }, 80);
-      setTimeout(function () {
-        $container.isotope("layout");
-      }, 200);
-    });
-  });
+    var filterValue = $(this).attr("data-filter") || "*";
 
-  $(window).on("scroll", relayout);
-
-  $(window).on("resize orientationchange", function () {
-    $container.isotope("layout");
-  });
-
-  $container
-    .imagesLoaded()
-    .progress(function () {
-      $container.isotope("layout");
-    })
-    .done(function () {
-      $(".gsap-reveal-img").each(function () {
-        var html = $(this).html();
-        $(this).html(
-          '<div class="reveal-wrap"><span class="cover"></span><div class="reveal-content">' +
-            html +
-            "</div></div>"
-        );
-      });
-
-      var controller = new ScrollMagic.Controller();
-      var revealImg = $(".gsap-reveal-img");
-
-      if (revealImg.length) {
-        var i = 0;
-        revealImg.each(function () {
-          var cover = $(this).find(".cover"),
-            revealContent = $(this).find(".reveal-content"),
-            img = $(this).find(".reveal-content img");
-
-          var tl2 = new TimelineMax();
-
-          setTimeout(function () {
-            tl2;
-            tl2.set(img, { scale: "2.0", autoAlpha: 1 }).to(cover, 1, {
-              marginLeft: "0",
-              ease: Expo.easeInOut,
-              onComplete() {
-                tl2.set(revealContent, { autoAlpha: 1 });
-                tl2.to(cover, 1, { marginLeft: "102%", ease: Expo.easeInOut });
-                tl2.to(img, 2, { scale: "1.0", ease: Expo.easeOut }, "-=1.5");
-
-                $container.isotope("layout");
-                setTimeout(function () {
-                  $container.isotope("layout");
-                }, 120);
-              },
-            });
-          }, i * 700);
-
-          var scene = new ScrollMagic.Scene({
-            triggerElement: this,
-            duration: "0%",
-            reverse: false,
-            offset: "-300%",
-          })
-            .setTween(tl2)
-            .addTo(controller);
-
-          i++;
-        });
+    $containers.each(function () {
+      var $container = $(this);
+      if ($container.data("isotope")) {
+        $container.isotope({ filter: filterValue, sortBy: "originalOrder" });
       }
     });
+
+    $("#filters a").removeClass("active");
+    $(this).addClass("active");
+  });
 
   $(".js-filter").on("click", function (e) {
     e.preventDefault();
     $("#filters").toggleClass("active");
-    $container.isotope("layout");
+    layoutAll();
   });
 
-  document.addEventListener("aos:in", function () {
-    $container.isotope("layout");
+  $(window).on("load resize orientationchange scroll", function () {
+    layoutAll();
   });
+
+  document.addEventListener("aos:in", layoutAll);
+
+  setTimeout(layoutAll, 200);
+  setTimeout(layoutAll, 700);
+  setTimeout(layoutAll, 1400);
 };
 
 var loader = function () {
@@ -1267,6 +1522,48 @@ var mobileToggleClick = function () {
         $("body").find(".js-burger-toggle-menu").removeClass("open");
       }
     }
+  });
+};
+
+var hardHomeReloadLinks = function () {
+  function isIndexPage() {
+    var path = (window.location.pathname || "").toLowerCase();
+    var looksLikeFolderRoot = path.endsWith("/") || !path.includes(".html");
+
+    return (
+      path.endsWith("/index.html") ||
+      path === "/index.html" ||
+      path.endsWith("index.html") ||
+      looksLikeFolderRoot
+    );
+  }
+
+  $("body").on("click", ".js-hard-home-reload", function (e) {
+    e.preventDefault();
+
+    var target = "index.html";
+
+    if (isIndexPage()) {
+      try {
+        history.replaceState(null, "", target);
+      } catch (err) {}
+
+      $("html, body").stop(true, true).scrollTop(0);
+
+      var logo = document.getElementById("siteLogo");
+      if (logo) {
+        logo.setAttribute(
+          "src",
+          logo.getAttribute("data-logo-white") || "images/logoCustomWhite.png"
+        );
+      }
+
+      $(".unslate_co--site-nav").removeClass("scrolled");
+      window.location.reload();
+      return;
+    }
+
+    window.location.href = target;
   });
 };
 
@@ -1599,22 +1896,18 @@ var unitDescToggle = function () {
  *    data-images="img1,img2,img3"
  */
 var portfolioItemClick = function () {
-  var PORTFOLIO_DATA = {};
   var AUTO_ID_COUNTER = 1000;
 
   function normalizeImages(images) {
     var out = (images || []).filter(Boolean);
-
-    // Make sure slider feels like a slider
     if (out.length === 1) out = [out[0], out[0]];
-    if (out.length === 0)
-      out = ["images/work_2_md.jpg", "images/work_2_md.jpg"];
-
+    if (out.length === 0) out = ["images/post_1.jpg", "images/post_2.jpg"];
     return out;
   }
 
   function parseImagesAttr(val) {
     if (!val) return [];
+
     return val
       .split(",")
       .map(function (s) {
@@ -1623,20 +1916,70 @@ var portfolioItemClick = function () {
       .filter(Boolean);
   }
 
+  function getPortfolioSectionFromTile($tile) {
+    var $section = $tile.closest(".portfolio-section");
+
+    if (!$section.length) {
+      $section = $tile.closest(".unslate_co--section");
+    }
+
+    if (!$section.length) {
+      $section = $("#semester-1-portfolio-section");
+    }
+
+    return $section;
+  }
+
+  function getSectionParts($section) {
+    var $wrapper = $section.find(".portfolio-wrapper").first();
+    var $titleBlock = $wrapper.children(".d-flex.align-items-center").first();
+    var $grid = $wrapper.find(".gutter-isotope-item").first();
+    var $holder = $wrapper.children(".portfolio-single-holder-inline").first();
+
+    /*
+    This holder sits AFTER the title but BEFORE the grid.
+    So the title stays visible, and the opened item appears below it.
+  */
+    if (!$holder.length) {
+      $holder = $('<div class="portfolio-single-holder-inline"></div>');
+
+      if ($titleBlock.length) {
+        $holder.insertAfter($titleBlock);
+      } else {
+        $wrapper.prepend($holder);
+      }
+    }
+
+    var $inlineLoader = $holder.children(".portfolio-inline-loader").first();
+
+    if (!$inlineLoader.length) {
+      $inlineLoader = $(
+        '<div class="portfolio-inline-loader">' +
+          '<div class="loader-portfolio"></div>' +
+          "</div>"
+      );
+      $holder.prepend($inlineLoader);
+    }
+
+    return {
+      holder: $holder,
+      wrapper: $wrapper,
+      titleBlock: $titleBlock,
+      grid: $grid,
+      loader: $inlineLoader,
+    };
+  }
+
   function buildFromTile($tile) {
     var id = $tile.data("id");
+
     if (!id) {
       id = "auto-" + AUTO_ID_COUNTER++;
       $tile.attr("data-id", id).data("id", id);
     }
 
-    var title = ($tile.find("h3").first().text() || "").trim();
-    var cat = ($tile.find("p").first().text() || "").trim();
-
-    // 1) prefer data-images (your HTML now has this)
     var imgs = parseImagesAttr($tile.attr("data-images"));
 
-    // 2) fallback to any <img> inside the tile
     if (!imgs.length) {
       $tile.find("img").each(function () {
         var src = $(this).attr("src");
@@ -1644,22 +1987,18 @@ var portfolioItemClick = function () {
       });
     }
 
-    imgs = normalizeImages(imgs);
+    var $section = getPortfolioSectionFromTile($tile);
 
     return {
       id: id,
-      title: title || "Portfolio Item",
-      category: cat || "",
+      sectionId: $section.attr("id") || "semester-1-portfolio-section",
+      title: ($tile.find("h3").first().text() || "Portfolio Item").trim(),
       description:
         $tile.attr("data-description") ||
         "Replace this placeholder with your real write-up for this entry.",
-      link: $tile.attr("data-link"),
-      images: imgs,
+      link: $tile.attr("data-link") || "#",
+      images: normalizeImages(imgs),
       fitMode: ($tile.attr("data-fit") || "contain").toLowerCase(),
-      date: $tile.attr("data-date") || "",
-      role: $tile.attr("data-role") || "",
-      client: $tile.attr("data-client") || "",
-      visit: $tile.attr("data-visit") || "",
     };
   }
 
@@ -1678,54 +2017,11 @@ var portfolioItemClick = function () {
       })
       .join("");
 
-    var rightDetails = "";
-
-    rightDetails +=
-      '<div class="detail-v1 mb-4 portfolio-description">' +
-      '<span class="detail-label">Description</span>' +
-      '<p class="mb-0 desc-text">' +
-      (item.description || "") +
-      "</p>" +
-      '<p class="mb-0 mt-3">' +
-      '<a href="' +
-      (item.link || "#") +
-      '" class="btn btn-outline-pill btn-custom-light learn-more-btn" aria-expanded="false">Learn more</a>' +
-      "</p>" +
-      "</div>";
-
-    if (item.date) {
-      rightDetails +=
-        '<div class="detail-v1 mb-3"><span class="detail-label">Project Date</span><span class="detail-val">' +
-        item.date +
-        "</span></div>";
-    }
-    if (item.role) {
-      rightDetails +=
-        '<div class="detail-v1 mb-3"><span class="detail-label">Role</span><span class="detail-val">' +
-        item.role +
-        "</span></div>";
-    }
-    if (item.client) {
-      rightDetails +=
-        '<div class="detail-v1 mb-3"><span class="detail-label">Client</span><span class="detail-val">' +
-        item.client +
-        "</span></div>";
-    }
-    if (item.visit) {
-      rightDetails +=
-        '<div class="detail-v1 mb-3"><span class="detail-label">Visit</span><span class="detail-val"><a href="' +
-        item.visit +
-        '" target="_blank" rel="noopener noreferrer">' +
-        item.visit +
-        "</a></span></div>";
-    }
-
-    // KEY CHANGE: portfolio-single-media gets w-100 so it fills col-lg-8 (2/3 width)
     return (
       '<div class="portfolio-single-wrap">' +
       '  <div class="container">' +
       '    <div class="row gutter-v4 align-items-start">' +
-      '      <div class="col-lg-8 mb-4 mb-lg-0 position-relative">' +
+      '      <div class="col-lg-8 mb-4 mb-lg-0">' +
       '        <div class="portfolio-single-media w-100 ' +
       fitClass +
       '">' +
@@ -1736,9 +2032,19 @@ var portfolioItemClick = function () {
       "      </div>" +
       '      <div class="col-lg-4">' +
       '        <h2 class="heading-h2 mb-4">' +
-      (item.title || "") +
+      item.title +
       "</h2>" +
-      rightDetails +
+      '        <div class="detail-v1 mb-4 portfolio-description">' +
+      '          <span class="detail-label">Description</span>' +
+      '          <p class="mb-0 desc-text">' +
+      item.description +
+      "</p>" +
+      '          <p class="mb-0 mt-3">' +
+      '            <a href="' +
+      item.link +
+      '" class="btn btn-outline-pill btn-custom-light learn-more-btn">Learn more</a>' +
+      "          </p>" +
+      "        </div>" +
       "      </div>" +
       "    </div>" +
       "  </div>" +
@@ -1749,6 +2055,7 @@ var portfolioItemClick = function () {
   function destroySingleSlider($root) {
     try {
       var $owl = $root.find(".single-slider");
+
       if ($owl.length && $owl.hasClass("owl-loaded")) {
         $owl.trigger("destroy.owl.carousel");
         $owl.removeClass("owl-loaded");
@@ -1757,145 +2064,199 @@ var portfolioItemClick = function () {
     } catch (e) {}
   }
 
-  function openPortfolioSingle(item) {
-    if (!item) return;
-
-    if ($("#portfolio-single-holder > div").length) {
-      var $existing = $("#portfolio-single-holder > div");
-      destroySingleSlider($existing);
-      $existing.remove();
-    }
-
-    TweenMax.to(".loader-portfolio-wrap", 1, {
-      top: "-50px",
-      autoAlpha: 1,
-      display: "block",
-      ease: Power4.easeOut,
-    });
-
-    // Lock "active section" + URL while portfolio single is open
-    window.__portfolioSingleOpen = true;
-
-    // Prevent the scroll-based hash router from fighting during this transition
-    window.__suppressHashRoutingUntil = Date.now() + 2500;
-
-    // Force URL to stay on portfolio while opening
+  function refreshAfterPortfolioChange() {
     try {
-      history.replaceState(null, "", "#portfolio-section");
+      if (typeof AOS !== "undefined") AOS.refreshHard();
+    } catch (e) {}
+
+    try {
+      $(window).trigger("resize").trigger("scroll");
+    } catch (e) {}
+  }
+
+  function layoutGrid($grid) {
+    if (!$grid || !$grid.length) return;
+
+    try {
+      if ($grid.data("isotope")) {
+        $grid.isotope({ sortBy: "originalOrder" });
+        $grid.isotope("layout");
+      }
+    } catch (e) {}
+  }
+
+  function scrollToSection($section) {
+    if (!$section.length) return;
+
+    var navOffset = ($(".unslate_co--site-nav").outerHeight() || 0) + 20;
+
+    $("html, body")
+      .stop(true)
+      .animate(
+        {
+          scrollTop: $section.offset().top - navOffset,
+        },
+        550,
+        "easeInOutExpo"
+      );
+  }
+
+  function setHash(sectionId) {
+    if (!sectionId) return;
+
+    try {
+      history.replaceState(null, "", "#" + sectionId);
     } catch (e) {
-      // fallback
-      window.location.hash = "portfolio-section";
+      window.location.hash = sectionId;
     }
-
-    $("html, body").animate(
-      { scrollTop: $("#portfolio-section").offset().top - 50 },
-      700,
-      "easeInOutExpo"
-    );
-
-    TweenMax.to(".portfolio-wrapper", 1, {
-      marginTop: "50px",
-      autoAlpha: 0,
-      visibility: "hidden",
-      onComplete: function () {
-        TweenMax.set(".portfolio-wrapper", { display: "none" });
-
-        var pSingleHolder = $("#portfolio-single-holder");
-        var content = buildPortfolioSingleHTML(item);
-
-        pSingleHolder.append(
-          '<div id="portfolio-single-' +
-            item.id +
-            '" class="portfolio-single-inner">' +
-            '<span class="unslate_co--close-portfolio js-close-portfolio d-flex align-items-center">' +
-            '<span class="close-portfolio-label">Back to Portfolio</span>' +
-            '<span class="icon-close2 wrap-icon-close"></span>' +
-            "</span>" +
-            content +
-            "</div>"
-        );
-
-        setTimeout(function () {
-          owlSingleSlider();
-          // after owl init, force layout
-          try {
-            $(".single-slider").trigger("refresh.owl.carousel");
-          } catch (e) {}
-        }, 10);
-
-        setTimeout(function () {
-          TweenMax.set(".portfolio-single-inner", {
-            marginTop: "100px",
-            autoAlpha: 0,
-            display: "none",
-          });
-
-          TweenMax.to(".portfolio-single-inner", 0.5, {
-            marginTop: "0px",
-            autoAlpha: 1,
-            display: "block",
-            onComplete: function () {
-              TweenMax.to(".loader-portfolio-wrap", 1, {
-                top: "0px",
-                autoAlpha: 0,
-                ease: Power4.easeOut,
-              });
-            },
-          });
-        }, 250);
-      },
-    });
   }
 
   $("body").on("click", ".ajax-load-page", function (e) {
     e.preventDefault();
+
     var $tile = $(this);
-    var id = $tile.data("id");
+    var item = buildFromTile($tile);
+    var $section = $("#" + item.sectionId);
+    var parts = getSectionParts($section);
 
-    var item = (id && PORTFOLIO_DATA[id]) || buildFromTile($tile);
-    PORTFOLIO_DATA[item.id] = PORTFOLIO_DATA[item.id] || item;
+    if (!parts.holder.length || !parts.grid.length) return;
 
-    openPortfolioSingle(PORTFOLIO_DATA[item.id]);
-  });
-
-  $("body").on("click", ".js-close-portfolio", function () {
-    // Unlock hash routing again (after we finish scrolling back to portfolio)
-    window.__portfolioSingleOpen = false;
-    window.__suppressHashRoutingUntil = Date.now() + 2000;
-
-    // Keep the URL pinned to portfolio when closing too
-    try {
-      history.replaceState(null, "", "#portfolio-section");
-    } catch (e) {
-      window.location.hash = "portfolio-section";
+    if (parts.holder.children().length) {
+      var $existing = parts.holder.children();
+      destroySingleSlider($existing);
+      $existing.remove();
     }
-    setTimeout(function () {
-      $("html, body").animate(
-        { scrollTop: $("#portfolio-section").offset().top - 50 },
-        700,
-        "easeInOutExpo"
-      );
-    }, 200);
 
-    TweenMax.set(".portfolio-wrapper", {
-      visibility: "visible",
-      height: "auto",
-      display: "block",
+    window.__portfolioSingleOpen = true;
+    window.__activePortfolioSectionId = item.sectionId;
+    window.__suppressHashRoutingUntil = Date.now() + 2200;
+
+    setHash(item.sectionId);
+    scrollToSection($section);
+
+    TweenMax.to(parts.loader, 0.25, {
+      autoAlpha: 1,
+      display: "flex",
+      ease: Power4.easeOut,
     });
 
-    TweenMax.to(".portfolio-single-inner", 1, {
-      marginTop: "50px",
-      opacity: 0,
-      display: "none",
+    /*
+      Hide ONLY the grid.
+      Do NOT hide .portfolio-wrapper, because that contains the title.
+    */
+    TweenMax.to(parts.grid, 0.35, {
+      autoAlpha: 0,
       onComplete: function () {
-        var $single = $("#portfolio-single-holder > div");
-        destroySingleSlider($single);
-
-        TweenMax.to(".portfolio-wrapper", 1, {
-          marginTop: "0px",
-          autoAlpha: 1,
-          position: "relative",
+        TweenMax.set(parts.grid, {
+          display: "none",
+          clearProps: "marginTop,transform",
         });
+
+        parts.holder.html(
+          '<div id="portfolio-single-' +
+            item.id +
+            '" class="portfolio-single-inner" data-return-section="' +
+            item.sectionId +
+            '">' +
+            '<button type="button" class="unslate_co--close-portfolio js-close-portfolio d-flex align-items-center" aria-label="Back to Portfolio">' +
+            '<span class="close-portfolio-label">Back to Portfolio</span>' +
+            '<span class="icon-close2 wrap-icon-close"></span>' +
+            "</button>" +
+            buildPortfolioSingleHTML(item) +
+            "</div>"
+        );
+
+        setTimeout(function () {
+          if (typeof owlSingleSlider === "function") owlSingleSlider();
+
+          try {
+            parts.holder.find(".single-slider").trigger("refresh.owl.carousel");
+          } catch (e) {}
+        }, 20);
+
+        TweenMax.set(parts.holder.find(".portfolio-single-inner"), {
+          y: 20,
+          autoAlpha: 0,
+          display: "block",
+        });
+
+        TweenMax.to(parts.holder.find(".portfolio-single-inner"), 0.35, {
+          y: 0,
+          autoAlpha: 1,
+          ease: Power4.easeOut,
+          onComplete: function () {
+            TweenMax.to(parts.loader, 0.2, {
+              autoAlpha: 0,
+              onComplete: function () {
+                TweenMax.set(parts.loader, { display: "none" });
+              },
+            });
+
+            refreshAfterPortfolioChange();
+          },
+        });
+      },
+    });
+  });
+
+  $("body").on("click", ".js-close-portfolio", function (e) {
+    e.preventDefault();
+
+    var $single = $(this).closest(".portfolio-single-inner");
+    var sectionId =
+      $single.attr("data-return-section") ||
+      window.__activePortfolioSectionId ||
+      "semester-1-portfolio-section";
+
+    var $section = $("#" + sectionId);
+    var parts = getSectionParts($section);
+
+    if (!$section.length || !parts.grid.length) return;
+
+    window.__portfolioSingleOpen = false;
+    window.__suppressHashRoutingUntil = Date.now() + 1600;
+
+    setHash(sectionId);
+
+    TweenMax.to($single, 0.4, {
+      y: 18,
+      autoAlpha: 0,
+      ease: Power4.easeInOut,
+      onComplete: function () {
+        destroySingleSlider($single);
+        $single.remove();
+
+        /*
+          This fixes the ugly Semester 1 shift:
+          show grid invisibly, force Isotope layout, then fade it in.
+          No marginTop animation, no wrapper animation, no layout jump.
+        */
+        TweenMax.set(parts.grid, {
+          display: "flex",
+          visibility: "hidden",
+          opacity: 0,
+          clearProps: "marginTop,transform",
+        });
+
+        layoutGrid(parts.grid);
+
+        setTimeout(function () {
+          layoutGrid(parts.grid);
+
+          TweenMax.set(parts.grid, {
+            visibility: "visible",
+          });
+
+          TweenMax.to(parts.grid, 0.5, {
+            autoAlpha: 1,
+            ease: Power4.easeOut,
+            onComplete: function () {
+              layoutGrid(parts.grid);
+              scrollToSection($section);
+              refreshAfterPortfolioChange();
+            },
+          });
+        }, 130);
       },
     });
   });
@@ -1970,79 +2331,141 @@ var stickyFillPlugin = function () {
 
 var animateReveal = function () {
   var controller = new ScrollMagic.Controller();
-  var greveal = $(".gsap-reveal");
 
+  /*
+    Normal text/title reveal.
+    Faster than before and triggers as the element enters the screen.
+  */
   $(".gsap-reveal").each(function () {
-    $(this).append('<span class="cover"></span>');
-  });
+    var $el = $(this);
 
-  if (greveal.length) {
-    var revealNum = 0;
-    greveal.each(function () {
-      var cover = $(this).find(".cover");
-      var tl = new TimelineMax();
+    if (!$el.children(".cover").length) {
+      $el.append('<span class="cover"></span>');
+    }
 
-      setTimeout(function () {
-        tl.fromTo(
-          cover,
-          2,
-          { skewX: 0 },
-          { xPercent: 101, transformOrigin: "0% 100%", ease: Expo.easeInOut }
-        );
-      }, revealNum * 0);
+    var cover = $el.children(".cover").first();
 
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        duration: "0%",
-        reverse: false,
-        offset: "-300%",
-      })
-        .setTween(tl)
-        .addTo(controller);
-
-      revealNum++;
-    });
-  }
-
-  $(".gsap-reveal-hero").each(function () {
-    var html = $(this).html();
-    $(this).html(
-      '<span class="reveal-wrap"><span class="cover"></span><span class="reveal-content">' +
-        html +
-        "</span></span>"
+    var tl = new TimelineMax();
+    tl.fromTo(
+      cover,
+      1.35,
+      { xPercent: 0 },
+      {
+        xPercent: 101,
+        transformOrigin: "0% 100%",
+        ease: Expo.easeInOut,
+      }
     );
+
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.9,
+      duration: 0,
+      reverse: false,
+      offset: 0,
+    })
+      .setTween(tl)
+      .addTo(controller);
   });
 
-  var grevealhero = $(".gsap-reveal-hero");
-  if (grevealhero.length) {
-    var heroNum = 0;
-    grevealhero.each(function () {
-      var cover = $(this).find(".cover"),
-        revealContent = $(this).find(".reveal-content");
+  /*
+    Portfolio/gallery image reveal.
+    This was missing, which is why the gallery items stopped animating.
+  */
+  $(".gsap-reveal-img").each(function () {
+    var $el = $(this);
 
-      var tl2 = new TimelineMax();
+    if (!$el.children(".reveal-wrap").length) {
+      var html = $el.html();
 
-      setTimeout(function () {
-        tl2.to(cover, 1, {
-          marginLeft: "0",
-          ease: Expo.easeInOut,
-          onComplete() {
-            tl2.set(revealContent, { x: 0 });
-            tl2.to(cover, 1, { marginLeft: "102%", ease: Expo.easeInOut });
-          },
-        });
-      }, heroNum * 0);
+      $el.html(
+        '<span class="reveal-wrap">' +
+          '<span class="cover"></span>' +
+          '<span class="reveal-content">' +
+          html +
+          "</span>" +
+          "</span>"
+      );
+    }
 
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        duration: "0%",
-        reverse: false,
-        offset: "-300%",
+    var cover = $el.find("> .reveal-wrap > .cover").first();
+    var content = $el.find("> .reveal-wrap > .reveal-content").first();
+
+    var tlImg = new TimelineMax();
+
+    tlImg
+      .set(content, {
+        autoAlpha: 1,
       })
-        .setTween(tl2)
-        .addTo(controller);
+      .fromTo(
+        cover,
+        1,
+        { marginLeft: "-100%" },
+        {
+          marginLeft: "0%",
+          ease: Expo.easeInOut,
+        }
+      )
+      .to(cover, 1, {
+        marginLeft: "102%",
+        ease: Expo.easeInOut,
+      });
 
-      heroNum++;
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.88,
+      duration: 0,
+      reverse: false,
+      offset: 0,
+    })
+      .setTween(tlImg)
+      .addTo(controller);
+  });
+
+  /*
+    Hero reveal.
+  */
+  $(".gsap-reveal-hero").each(function () {
+    var $el = $(this);
+
+    if (!$el.children(".reveal-wrap").length) {
+      var html = $el.html();
+
+      $el.html(
+        '<span class="reveal-wrap">' +
+          '<span class="cover"></span>' +
+          '<span class="reveal-content">' +
+          html +
+          "</span>" +
+          "</span>"
+      );
+    }
+
+    var cover = $el.find(".cover").first();
+    var revealContent = $el.find(".reveal-content").first();
+
+    var tlHero = new TimelineMax();
+
+    tlHero.to(cover, 0.75, {
+      marginLeft: "0",
+      ease: Expo.easeInOut,
+      onComplete: function () {
+        tlHero.set(revealContent, { x: 0 });
+        tlHero.to(cover, 0.75, {
+          marginLeft: "102%",
+          ease: Expo.easeInOut,
+        });
+      },
     });
-  }
+
+    new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.88,
+      duration: 0,
+      reverse: false,
+      offset: 0,
+    })
+      .setTween(tlHero)
+      .addTo(controller);
+  });
 };

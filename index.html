@@ -49,7 +49,10 @@
             <div class="row align-items-center justify-content-between">
               <!-- Logo LEFT -->
               <div class="col-auto">
-                <a href="./#home-section" class="unslate_co--site-logo">
+                <a
+                  href="index.html"
+                  class="unslate_co--site-logo js-hard-home-reload"
+                >
                   <img
                     id="siteLogo"
                     src="images/logoCustomWhite.png"
@@ -72,38 +75,37 @@
                   </li>
 
                   <li class="has-children">
-                    <a href="#portfolio-section" class="nav-link"
+                    <a href="#semester-1-portfolio-section" class="nav-link"
                       >Semester 1 Portfolio</a
                     >
                     <ul class="dropdown">
                       <li>
-                        <a href="semester1PortfolioIndividual.html#kafka"
+                        <a href="portfolioIndividual.html#kafka"
                           >Unit 1: Kafka</a
                         >
                       </li>
                       <li>
-                        <a href="semester1PortfolioIndividual.html#calvino"
+                        <a href="portfolioIndividual.html#calvino"
                           >Unit 2: Calvino</a
                         >
                       </li>
                       <li>
-                        <a href="semester1PortfolioIndividual.html#szymborska"
+                        <a href="portfolioIndividual.html#szymborska"
                           >Unit 3: Syzmborska</a
                         >
                       </li>
                       <li>
-                        <a href="semester1PortfolioIndividual.html#performative"
+                        <a href="portfolioIndividual.html#performative"
                           >Performative Literacy Project</a
                         >
                       </li>
                       <li>
-                        <a href="semester1PortfolioIndividual.html#lit-motion"
+                        <a href="portfolioIndividual.html#lit-motion"
                           >Literature in Motion</a
                         >
                       </li>
                       <li>
-                        <a
-                          href="semester1PortfolioIndividual.html#semester1-reflection"
+                        <a href="portfolioIndividual.html#semester1-reflection"
                           >Semester 1 Reflection</a
                         >
                       </li>
@@ -111,27 +113,37 @@
                   </li>
 
                   <li class="has-children">
-                    <a href="comingSoon.html" class="nav-link"
+                    <a href="#semester-2-portfolio-section" class="nav-link"
                       >Semester 2 Portfolio</a
                     >
                     <ul class="dropdown">
-                      <li><a href="comingSoon.html">Unit 4: Duffy</a></li>
                       <li>
-                        <a href="comingSoon.html">Unit 5: College & Career</a>
+                        <a href="portfolioIndividual.html#duffy"
+                          >Unit 4: Duffy</a
+                        >
                       </li>
                       <li>
-                        <a href="comingSoon.html">Unit 6: Ng</a>
+                        <a href="portfolioIndividual.html#college-career"
+                          >Unit 5: College & Career</a
+                        >
                       </li>
                       <li>
-                        <a href="comingSoon.html"
+                        <a href="portfolioIndividual.html#ng">Unit 6: Ng</a>
+                      </li>
+                      <li>
+                        <a href="portfolioIndividual.html#intertextuality"
                           >Intertextuality Literacy Project</a
                         >
                       </li>
                       <li>
-                        <a href="comingSoon.html">Food for Thought</a>
+                        <a href="portfolioIndividual.html#food-for-thought"
+                          >Food for Thought</a
+                        >
                       </li>
                       <li>
-                        <a href="comingSoon.html">Semester 2 Reflection</a>
+                        <a href="portfolioIndividual.html#semester2-reflection"
+                          >Semester 2 Reflection</a
+                        >
                       </li>
                     </ul>
                   </li>
@@ -314,8 +326,15 @@
           </div>
         </div>
 
-        <!-- PORTFOLIO -->
-        <div class="unslate_co--section" id="portfolio-section">
+        <!-- Backward-compatible anchor for older links -->
+        <div id="portfolio-section"></div>
+
+        <!-- PORTFOLIO SEMESTER 1 -->
+        <div
+          class="unslate_co--section portfolio-section"
+          id="semester-1-portfolio-section"
+          data-portfolio-section="semester-1"
+        >
           <div class="container">
             <div class="relative">
               <div class="loader-portfolio-wrap">
@@ -323,9 +342,12 @@
               </div>
             </div>
 
-            <div id="portfolio-single-holder"></div>
+            <div
+              id="semester-1-portfolio-single-holder"
+              class="portfolio-single-holder"
+            ></div>
 
-            <div class="portfolio-wrapper">
+            <div class="portfolio-wrapper portfolio-wrapper-semester-1">
               <div
                 style="justify-content: center; flex-direction: column"
                 class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter"
@@ -349,7 +371,7 @@
                     data-fit="contain"
                     data-images="images/kafka.jpg, images/kafka2.jpg"
                     data-description="The Metamorphosis by Franz Kafka explores alienation, identity, and the pressure of social expectations. The story follows Gregor Samsa, who awakens transformed into an insect and becomes increasingly isolated from his family. Kafka uses the absurd transformation to expose emotional distance and the fragility of human relationships."
-                    data-link="semester1PortfolioIndividual.html#kafka"
+                    data-link="portfolioIndividual.html#kafka"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -375,7 +397,7 @@
                     data-fit="contain"
                     data-images="images/calvino.jpg,images/calvino2.jpg"
                     data-description="The Nonexistent Knight by Italo Calvino explores identity, duty, and the tension between appearance and reality. The story follows Agilulf, a knight who exists only through his strict adherence to rules and honor despite lacking a physical body. The Nonexistent Knight uses absurdity and satire to question what truly defines a person’s identity and purpose."
-                    data-link="semester1PortfolioIndividual.html#calvino"
+                    data-link="portfolioIndividual.html#calvino"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -401,7 +423,7 @@
                     data-fit="contain"
                     data-images="images/szymborska.webp,images/szymborska2.webp"
                     data-description="Wisława Szymborska writes poetry that reflects on everyday life, human nature, and the mysteries of existence. Her poems often use simple observations, among other literary techniques, to explore complex philosophical ideas about knowledge and what it truly means to be human."
-                    data-link="semester1PortfolioIndividual.html#szymborska"
+                    data-link="portfolioIndividual.html#szymborska"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -426,7 +448,7 @@
                     data-fit="contain"
                     data-images="images/performativeLiteracy.png,images/performativeLiteracy2.png"
                     data-description="An interactive 3D model of Gregor Samsa’s house created using Three.js. The project visually represents the setting of The Metamorphosis through animation and spatial exploration, allowing viewers to experience the confined environment that reflects Gregor’s isolation."
-                    data-link="semester1PortfolioIndividual.html#performative"
+                    data-link="portfolioIndividual.html#performative"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -452,7 +474,7 @@
                     data-fit="contain"
                     data-images="images/literatureInMotion.jpg,images/literatureInMotion2.jpg"
                     data-description="A group project where we programmed a Dash robot to physically represent the themes and literary techniques in The Sudden Walk. Through movement, speed changes, and breaking out of a boxed space, the robot symbolized the character’s impulsive decision and the tension between confinement and freedom."
-                    data-link="semester1PortfolioIndividual.html#lit-motion"
+                    data-link="portfolioIndividual.html#lit-motion"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -478,7 +500,7 @@
                     data-fit="contain"
                     data-images="images/reflectionSemester1-1.jpg,images/reflectionSemester1-2.jpg"
                     data-description="A reflection on my learning throughout the first semester of IB English, focusing on how studying authors like Kafka, Calvino, and Szymborska helped me develop stronger analytical skills and a deeper understanding of how literature explores complex human experiences."
-                    data-link="semester1PortfolioIndividual.html#semester1-reflection"
+                    data-link="portfolioIndividual.html#semester1-reflection"
                   >
                     <div class="overlay">
                       <span class="wrap-icon icon-link2"></span>
@@ -490,6 +512,201 @@
                       src="images/reflectionSemester1-1.jpg"
                       class="lazyload img-fluid"
                       alt="Images"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PORTFOLIO SEMESTER 2 -->
+        <div
+          class="unslate_co--section portfolio-section"
+          id="semester-2-portfolio-section"
+          data-portfolio-section="semester-2"
+        >
+          <div class="container">
+            <div class="relative">
+              <div class="loader-portfolio-wrap">
+                <div class="loader-portfolio"></div>
+              </div>
+            </div>
+
+            <div
+              id="semester-2-portfolio-single-holder"
+              class="portfolio-single-holder"
+            ></div>
+
+            <div class="portfolio-wrapper portfolio-wrapper-semester-2">
+              <div
+                style="justify-content: center; flex-direction: column"
+                class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter"
+              >
+                <h2 class="heading-h2 text-center divider">
+                  <span class="gsap-reveal">My Portfolio - Semester 2</span>
+                </h2>
+                <span class="gsap-reveal">
+                  <img src="images/divider.png" alt="divider" width="76" />
+                </span>
+              </div>
+
+              <div
+                id="posts-semester-2"
+                class="row gutter-isotope-item portfolio-posts"
+              >
+                <div
+                  class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item ajax-load-page isotope-item gsap-reveal-img"
+                    data-id="201"
+                    data-fit="contain"
+                    data-images="images/post_1.jpg,images/post_2.jpg"
+                    data-description="A Semester 2 portfolio entry for Unit 4: Duffy. Replace this text with the final description once the unit artifacts are ready."
+                    data-link="portfolioIndividual.html#duffy"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Unit 4: Duffy</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/post_1.jpg"
+                      class="lazyload img-fluid"
+                      alt="Unit 4: Duffy"
+                    />
+                  </a>
+                </div>
+
+                <div
+                  class="item branding packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img"
+                    data-id="202"
+                    data-fit="contain"
+                    data-images="images/post_2.jpg,images/post_3.jpg"
+                    data-description="A Semester 2 portfolio entry for Unit 5: College & Career. Replace this text with the final description once the unit artifacts are ready."
+                    data-link="portfolioIndividual.html#college-career"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Unit 5: College & Career</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/post_2.jpg"
+                      class="lazyload img-fluid"
+                      alt="Unit 5: College & Career"
+                    />
+                  </a>
+                </div>
+
+                <div
+                  class="item branding packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item isotope-item gsap-reveal-img ajax-load-page"
+                    data-id="203"
+                    data-fit="contain"
+                    data-images="images/post_3.jpg,images/post_4.jpg"
+                    data-description="A Semester 2 portfolio entry for Unit 6: Ng. Replace this text with the final description once the unit artifacts are ready."
+                    data-link="portfolioIndividual.html#ng"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Unit 6: Ng</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/post_3.jpg"
+                      class="lazyload img-fluid"
+                      alt="Unit 6: Ng"
+                    />
+                  </a>
+                </div>
+
+                <div
+                  class="item web packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item ajax-load-page isotope-item gsap-reveal-img"
+                    data-id="204"
+                    data-fit="contain"
+                    data-images="images/post_4.jpg,images/post_5.jpg"
+                    data-description="A Semester 2 portfolio entry for the Intertextuality Literacy Project. Replace this text with the final description once the project is ready."
+                    data-link="portfolioIndividual.html#intertextuality"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Intertextuality Literacy Project</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/post_4.jpg"
+                      class="lazyload img-fluid"
+                      alt="Intertextuality Literacy Project"
+                    />
+                  </a>
+                </div>
+
+                <div
+                  class="item illustration packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item ajax-load-page isotope-item gsap-reveal-img"
+                    data-id="205"
+                    data-fit="contain"
+                    data-images="images/post_5.jpg,images/post_1.jpg"
+                    data-description="A Semester 2 portfolio entry for Food for Thought. Replace this text with the final description once the artifact is ready."
+                    data-link="portfolioIndividual.html#food-for-thought"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Food for Thought</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/post_5.jpg"
+                      class="lazyload img-fluid"
+                      alt="Food for Thought"
+                    />
+                  </a>
+                </div>
+
+                <div
+                  class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2"
+                >
+                  <a
+                    href="javascript:void(0)"
+                    class="portfolio-item ajax-load-page item-portrait isotope-item gsap-reveal-img"
+                    data-id="206"
+                    data-fit="contain"
+                    data-images="images/reflectionSemester1-1.jpg,images/reflectionSemester1-2.jpg"
+                    data-description="A reflection on my learning throughout the second semester of IB English. Replace this text with the final reflection summary once it is ready."
+                    data-link="portfolioIndividual.html#semester2-reflection"
+                  >
+                    <div class="overlay">
+                      <span class="wrap-icon icon-link2"></span>
+                      <div class="portfolio-item-content">
+                        <h3>Semester 2 Reflection</h3>
+                      </div>
+                    </div>
+                    <img
+                      src="images/reflectionSemester1-1.jpg"
+                      class="lazyload img-fluid"
+                      alt="Semester 2 Reflection"
                     />
                   </a>
                 </div>
@@ -630,9 +847,9 @@
           <div class="row justify-content-center">
             <div class="col-md-7">
               <div class="footer-site-logo">
-                <a href="#"
-                  ><img src="images/logoCustomWhite.png" alt="logo"
-                /></a>
+                <a href="index.html" class="js-hard-home-reload">
+                  <img src="images/logoCustomWhite.png" alt="logo" />
+                </a>
               </div>
 
               <ul class="footer-site-social">
