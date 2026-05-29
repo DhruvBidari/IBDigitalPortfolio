@@ -443,41 +443,47 @@ var UNIT_PAGES = {
     pageTitle: "Unit 4: Duffy",
     heroTitle: "Unit 4: Duffy",
     heroSubtitle:
-      "Semester 2 work focused on poetry, voice, memory, and identity.",
-    heroBg: "images/post_1.jpg",
+      "Carol Ann Duffy’s Poetry — memory, power, voice, and the emotional weight of human experience.",
+    heroBg: "images/duffy1.jpg",
     hasTop5: true,
     slider: [
-      { src: "images/post_1.jpg", fit: "contain", alt: "Duffy slide 1" },
-      { src: "images/post_2.jpg", fit: "contain", alt: "Duffy slide 2" },
+      { src: "images/duffy2.jpeg", fit: "contain", alt: "Duffy slide 1" },
+      { src: "images/duffy3.png", fit: "contain", alt: "Duffy slide 2" },
+      { src: "images/duffy4.png", fit: "contain", alt: "Duffy slide 3" },
     ],
     details: {
       text: "Poetry",
       author: "Carol Ann Duffy",
       focus: "Voice / Memory / Identity",
-      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+      links: [{ label: "GIS", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>This Semester 2 unit explores Duffy's poetry through voice, memory, identity, and perspective. Replace this placeholder with your final description and artifact links.</p>",
+      "<p>Carol Ann Duffy’s poetry explores memory, identity, power, and the emotional effects of history and personal experience. Through poems such as “War Photographer,” “Originally,” “Before You Were Mine,” “Standing Female Nude,” and “Havisham,” Duffy gives voice to people shaped by conflict, childhood, gender expectations, love, loss, and social pressure. Her work often reveals how ordinary moments and hidden emotions can expose deeper truths about identity, trauma, and human connection.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1GgOArnx_ebK4rb8H-HnmnxptUov6-DuVOUWlgiWdXQc/edit?usp=sharing'>Global Issue Statement</a></p>",
     top5: [
       {
-        title: "Voice reveals identity.",
-        body: "Duffy often uses speakers whose voices expose personal conflict, memory, and power.",
+        title:
+          "Duffy gives voice to people who are usually silenced or overlooked.",
+        body: "Her poems often center speakers whose emotions, identities, or suffering are ignored by society, history, or the people around them.",
       },
       {
-        title: "Perspective shapes meaning.",
-        body: "The speaker's point of view controls how the reader understands emotion and experience.",
+        title: "Identity is shaped by memory, childhood, and the past.",
+        body: "In poems like Originally, In Miss Tilscher’s Class, and Before You Were Mine, Duffy shows how the past continues to shape who people become.",
       },
       {
-        title: "Memory is unstable.",
-        body: "Duffy's poetry often presents memory as emotional, selective, and shaped by time.",
+        title:
+          "Duffy exposes the emotional damage caused by power and conflict.",
+        body: "Poems like War Photographer, Shooting Stars, and Selling Manhattan reveal how violence, oppression, and history leave lasting human consequences.",
       },
       {
-        title: "Language creates intimacy.",
-        body: "Diction, imagery, and structure make private experiences feel immediate and human.",
+        title:
+          "Her poetry challenges traditional gender roles and objectification.",
+        body: "Duffy presents women as complex individuals with anger, desire, memory, and agency, rather than allowing them to remain passive or idealized figures.",
       },
       {
-        title: "Poetry critiques social expectations.",
-        body: "Many poems challenge assumptions about gender, relationships, identity, and power.",
+        title:
+          "Ordinary moments become powerful reflections on human experience.",
+        body: "Through simple images and everyday details, Duffy explores deeper emotions such as love, grief, loneliness, responsibility, and longing.",
       },
     ],
   },
@@ -486,41 +492,43 @@ var UNIT_PAGES = {
     pageTitle: "Unit 5: College & Career",
     heroTitle: "Unit 5: College & Career",
     heroSubtitle:
-      "Connecting IB English skills to future goals, communication, and reflection.",
-    heroBg: "images/post_2.jpg",
+      "College and Career — future planning, personal ambition, and the steps toward life after high school.",
+    heroBg: "images/college3.jpg",
     hasTop5: true,
     slider: [
-      { src: "images/post_2.jpg", fit: "contain", alt: "College slide 1" },
-      { src: "images/post_3.jpg", fit: "contain", alt: "College slide 2" },
+      { src: "images/college1.jpg", fit: "contain", alt: "College slide 1" },
+      { src: "images/college2.png", fit: "contain", alt: "College slide 2" },
     ],
     details: {
       text: "College & Career",
       author: "Dhruv Bidari",
       focus: "Reflection / Future Goals",
-      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+      links: [{ label: "Resume", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>This Semester 2 unit connects English skills to college, career, communication, and future planning. Replace this placeholder with your final description and artifact links.</p>",
+      "<p>The College and Career Unit focused on preparing for life after high school through career research, ACT prep, resume building, and exploring college majors. By researching possible careers and the education paths connected to them, I learned how my interests can connect to realistic future opportunities. The unit helped me think more intentionally about college, work, and the steps I need to take to build a strong future.</p>" +
+      "<p><a href='https://docs.google.com/document/d/10F_mKqo9gYlgy_9U1qHFNnHzDpoqvlQwsyCDVrYjLoA/edit?usp=sharing'>My Resume</a></p>",
     top5: [
       {
-        title: "Reflection clarifies growth.",
-        body: "Looking back at past work helps show how skills and goals have developed.",
+        title:
+          "The unit connected personal interests to real future possibilities.",
+        body: "Researching careers and college paths helped turn broad goals into more realistic options based on majors, requirements, and long-term opportunities.",
       },
       {
-        title: "Communication matters beyond class.",
-        body: "Writing, speaking, and analysis become useful in college, career, and leadership contexts.",
+        title: "College planning became more than just choosing a school..",
+        body: "The unit showed how factors like academics, cost, location, programs, and career outcomes all shape whether a college is actually a good fit.",
       },
       {
-        title: "Purpose strengthens writing.",
-        body: "Clear goals make personal and academic writing more focused and meaningful.",
+        title: "ACT preparation emphasized strategy, discipline, and growth.",
+        body: "Studying for the ACT showed that success depends not only on knowledge, but also on timing, practice, confidence, and learning from mistakes.",
       },
       {
-        title: "Audience changes choices.",
-        body: "Strong communication depends on adapting tone, structure, and detail to the audience.",
+        title: "College essay brainstorming encouraged deeper self-reflection.",
+        body: "Thinking through possible essay topics helped connect personal experiences, values, challenges, and goals into a clearer story of identity.",
       },
       {
-        title: "IB skills transfer forward.",
-        body: "Analysis, reflection, and argument-building are useful beyond IB English.",
+        title: "The unit made the future feel more intentional and achievable.",
+        body: "By combining career research, college planning, test preparation, and writing, the unit helped create a stronger sense of direction after high school.",
       },
     ],
   },
@@ -529,41 +537,49 @@ var UNIT_PAGES = {
     pageTitle: "Unit 6: Ng",
     heroTitle: "Unit 6: Ng",
     heroSubtitle:
-      "Exploring identity, family pressure, silence, and external expectations.",
-    heroBg: "images/post_3.jpg",
+      "Everything I Never Told You — family pressure, silence, and the fragile search for identity.",
+    heroBg: "images/ng2.png",
     hasTop5: true,
     slider: [
-      { src: "images/post_3.jpg", fit: "contain", alt: "Ng slide 1" },
-      { src: "images/post_4.jpg", fit: "contain", alt: "Ng slide 2" },
+      { src: "images/ng1.jpg", fit: "contain", alt: "Ng slide 1" },
+      { src: "images/ng3.jpg", fit: "contain", alt: "Ng slide 2" },
+      { src: "images/ng4.png", fit: "contain", alt: "Ng slide 3" },
     ],
     details: {
       text: "Everything I Never Told You",
       author: "Celeste Ng",
       focus: "Identity / Family / Expectations",
-      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+      links: [
+        { label: "TTT", href: "javascript:void(0)" },
+        { label: "GIS", href: "javascript:void(0)" },
+      ],
     },
     descriptionHtml:
-      "<p>This unit explores Celeste Ng's treatment of identity, family pressure, silence, and external expectations. Replace this placeholder with your final description and artifact links.</p>",
+      "<p>Everything I Never Told You by Celeste Ng explores identity, family pressure, and the damage caused by silence. The novel follows the Lee family after Lydia’s death, revealing how her parents’ expectations and unspoken struggles shaped her life. Ng uses the family’s hidden tensions to show how love can become harmful when people project their dreams onto someone else.</p>" +
+      "<p>In class, our study of Everything I Never Told You went beyond basic plot summary through fishbowl discussions, annotations, and student-created discussion questions. These activities pushed us to analyze the novel’s deeper motifs, such as silence, family pressure, identity, race, and memory. By preparing questions and responding to classmates’ ideas, we developed a stronger understanding of how Celeste Ng uses the Lee family’s hidden tensions to reveal the emotional damage caused by unspoken expectations.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1SbN0X_gSJ9I5kBGFU30HbUmWRL1Ea6EevsQfsPLfUjg/edit?usp=sharing'>Table Talk Task</a></p>" +
+      "<p><a href='https://docs.google.com/document/d/1efqCsVoffajDwhi2K-7iAL_L2h1uXf_b2XTVfLO0QU0/edit?usp=sharing'>Global Issue Statement</a></p>",
     top5: [
       {
-        title: "Silence damages relationships.",
-        body: "Characters often hide their feelings, creating distance and misunderstanding within the family.",
+        title: "Ng shows how family expectations can erase personal identity.",
+        body: "Lydia is shaped by her parents’ dreams rather than her own desires, revealing how love can become damaging when it turns into pressure.",
       },
       {
-        title: "Expectations shape identity.",
-        body: "Family and social pressure push characters toward roles they may not truly want.",
+        title: "Silence is one of the novel’s most destructive forces.",
+        body: "The Lee family’s inability to honestly communicate causes misunderstanding, isolation, and emotional distance between characters.",
       },
       {
-        title: "Belonging is complicated.",
-        body: "Ng explores how race, family, and gender affect a person's sense of belonging.",
+        title: "The novel explores how race and gender shape belonging.",
+        body: "Ng shows how James, Marilyn, and their children struggle with feeling different, unseen, or trapped by society’s expectations.",
       },
       {
-        title: "Private pain becomes invisible.",
-        body: "The novel shows how people can suffer deeply while appearing fine from the outside.",
+        title: "Memory reveals the hidden truths behind family relationships.",
+        body: "Through flashbacks, the novel shows that Lydia’s death cannot be understood without examining the family’s past wounds and secrets.",
       },
       {
-        title: "Identity needs selfhood.",
-        body: "The story warns that living only for others' expectations can erase authentic identity.",
+        title:
+          "Ng presents love as complicated, imperfect, and sometimes harmful.",
+        body: "The characters care deeply for one another, but their love often becomes control, projection, or silence instead of true understanding.",
       },
     ],
   },
@@ -572,49 +588,44 @@ var UNIT_PAGES = {
     pageTitle: "Intertextuality Literacy Project",
     heroTitle: "Intertextuality Literacy Project",
     heroSubtitle:
-      "Connecting texts, themes, and global issues across the IB English course.",
-    heroBg: "images/post_4.jpg",
+      "Calvino and Ng — external expectations, lost authenticity, and the struggle to define the self..",
+    heroBg: "images/intertexuality1.png",
     hasTop5: false,
     slider: [
       {
-        src: "images/post_4.jpg",
+        src: "images/calvino2.jpg",
         fit: "contain",
-        alt: "Intertextuality slide 1",
+        alt: "Intertexuality slide 1",
       },
+      { src: "images/ng1.jpg", fit: "contain", alt: "Intertexuality slide 2" },
       {
-        src: "images/post_5.jpg",
+        src: "images/intertexuality2.png",
         fit: "contain",
-        alt: "Intertextuality slide 2",
+        alt: "Intertexuality slide 3",
       },
     ],
     details: {
       text: "Project",
       author: "Dhruv Bidari",
       focus: "Intertextuality / Global Issues",
-      links: [{ label: "Artifacts", href: "javascript:void(0)" }],
+      links: [{ label: "Essay", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>This project connects multiple texts and ideas from the IB English course through shared themes, techniques, and global issues. Replace this placeholder with your final description and artifact links.</p>",
+      "<p>The IB Intertextuality Assignment explored the connection between Italo Calvino’s The Nonexistent Knight and Celeste Ng’s Everything I Never Told You. The essay compared Agilulf and Lydia to show how identity can be damaged when external expectations become stronger than the self. Through Agilulf’s empty perfection and Lydia’s silent suffering, both texts reveal how people can lose authenticity by performing the roles society or family demands of them.</p>" +
+      "<p><a href='https://docs.google.com/document/d/1UPk9DOtRfSpxlS4eihA60pFoATv_RH3ZaFek72Q7cyA/edit?usp=sharing'>My Intertexuality Essay</a></p>",
   },
 
   "food-for-thought": {
     pageTitle: "Food for Thought",
     heroTitle: "Food for Thought",
     heroSubtitle:
-      "A Semester 2 artifact connecting reflection, discussion, and course ideas.",
-    heroBg: "images/post_5.jpg",
+      "Literary Cake Final — analysis, creativity, collaboration, and a sweet close to Year One of IB English.",
+    heroBg: "images/food2.jpg",
     hasTop5: false,
     slider: [
-      {
-        src: "images/post_5.jpg",
-        fit: "contain",
-        alt: "Food for Thought slide 1",
-      },
-      {
-        src: "images/post_1.jpg",
-        fit: "contain",
-        alt: "Food for Thought slide 2",
-      },
+      { src: "images/kafka2.jpg", fit: "contain", alt: "Food slide 1" },
+      { src: "images/calvino2.jpg", fit: "contain", alt: "Food slide 2" },
+      { src: "images/duffy1.jpg", fit: "contain", alt: "Food slide 3" },
     ],
     details: {
       text: "Artifact",
@@ -623,19 +634,19 @@ var UNIT_PAGES = {
       links: [{ label: "Artifacts", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>This Semester 2 artifact represents reflection and discussion connected to major course ideas. Replace this placeholder with your final description and artifact links.</p>",
+      "<p>Will update this description on the weekend of 5/27 to 5/29 as I learn more about the project.</p>",
   },
 
   "semester2-reflection": {
     pageTitle: "Semester 2 Reflection",
     heroTitle: "Semester 2 Reflection",
     heroSubtitle:
-      "Reflecting on growth, skills, and learning across the second semester.",
+      "Semester 2 Reflection — identity, growth, and the connections between literature, learning, and the future.",
     heroBg: "images/reflectionSemester1-1.jpg",
-    hasTop5: true,
+    hasTop5: false,
     slider: [
       {
-        src: "images/reflectionSemester1-1.jpg",
+        src: "images/reflectionSemester2-1.jpg",
         fit: "contain",
         alt: "Semester 2 reflection slide 1",
       },
@@ -648,33 +659,11 @@ var UNIT_PAGES = {
     details: {
       text: "Reflection",
       author: "Dhruv Bidari",
-      focus: "Growth / Learning / Analysis",
+      focus: "Growth / Skills",
       links: [{ label: "Reflection", href: "javascript:void(0)" }],
     },
     descriptionHtml:
-      "<p>This reflection focuses on my growth throughout Semester 2 of IB English. Replace this placeholder with your final reflection and artifact links.</p>",
-    top5: [
-      {
-        title: "My analysis became more specific.",
-        body: "Semester 2 helped me connect authorial choices more directly to larger meanings.",
-      },
-      {
-        title: "I improved my use of evidence.",
-        body: "I became better at choosing evidence that clearly supports my interpretation.",
-      },
-      {
-        title: "I made stronger text connections.",
-        body: "I learned to compare texts through shared ideas instead of only surface similarities.",
-      },
-      {
-        title: "Reflection helped me see growth.",
-        body: "Looking back at my work made my progress more visible and concrete.",
-      },
-      {
-        title: "IB English became more purposeful.",
-        body: "The course helped me see literature as a way to study identity, society, and human behavior.",
-      },
-    ],
+      "<p>I kept honing my literary analysis skills through attentive reading, conversation, and introspection during the second semester of IB English. I gained a better understanding of how complex human relationships are shaped by silence, ethnicity, identity, and family expectations by reading Celeste Ng's Everything I Never Told You. Carol Ann Duffy's poetry prompted me to consider voice, memory, gender, conflict, and how authors convey intense emotion through commonplace imagery. The intertextuality essay between Ng and Calvino improved my capacity to link two disparate pieces through a common worldwide concern, particularly the harm that external expectations can do to genuine identity. Through career research, ACT preparation, CV creation, and college major exploration, the College and Career Unit also assisted me in thinking about my own future. Throughout the semester, I was inspired to go beyond summary and concentrate more on meaning, authorial choices, and thematic connections through fishbowl discussions, annotations, written inquiries, and creative projects. By the end of the semester, I was more comfortable with both literary analysis and using English class to gain a deeper understanding of myself, ambition, communication, and the future.</p>",
   },
 
   kafka: {
@@ -2395,17 +2384,18 @@ var animateReveal = function () {
 
     tlImg
       .set(content, {
+        autoAlpha: 0,
+      })
+      .set(cover, {
+        marginLeft: "-100%",
+      })
+      .to(cover, 1, {
+        marginLeft: "0%",
+        ease: Expo.easeInOut,
+      })
+      .set(content, {
         autoAlpha: 1,
       })
-      .fromTo(
-        cover,
-        1,
-        { marginLeft: "-100%" },
-        {
-          marginLeft: "0%",
-          ease: Expo.easeInOut,
-        }
-      )
       .to(cover, 1, {
         marginLeft: "102%",
         ease: Expo.easeInOut,

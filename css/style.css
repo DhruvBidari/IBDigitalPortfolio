@@ -2573,6 +2573,7 @@ figure.dotted-bg:before {
   margin-bottom: 40px;
   font-size: 50px;
   font-weight: 900;
+  padding-top: 50px;
 }
 
 @media (max-width: 991.98px) {
@@ -3461,4 +3462,79 @@ body.cv-modal-open {
 /* Restore sane reveal timing visuals after the earlier speed-up */
 .gsap-reveal-img > .reveal-wrap > .cover {
   transition: none !important;
+}
+
+/* =========================================================
+   FINAL PORTFOLIO GRID RESET - MATCH OLD WORKING TEMPLATE
+   ========================================================= */
+
+/* Restore the original Bootstrap row gutter behavior */
+#semester-1-portfolio-section .gutter-isotope-item,
+#semester-2-portfolio-section .gutter-isotope-item,
+#posts,
+#posts-semester-2 {
+  margin-left: -15px !important;
+  margin-right: -15px !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Restore the original Bootstrap column padding */
+#semester-1-portfolio-section .gutter-isotope-item > .col,
+#semester-1-portfolio-section .gutter-isotope-item > [class*="col-"],
+#semester-2-portfolio-section .gutter-isotope-item > .col,
+#semester-2-portfolio-section .gutter-isotope-item > [class*="col-"],
+#posts > .item,
+#posts-semester-2 > .item {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin-bottom: 30px !important;
+}
+
+/* Undo all earlier nth-child alignment hacks */
+#posts > .item:nth-child(3n + 1),
+#posts > .item:nth-child(3n + 2),
+#posts > .item:nth-child(3n),
+#posts-semester-2 > .item:nth-child(3n + 1),
+#posts-semester-2 > .item:nth-child(3n + 2),
+#posts-semester-2 > .item:nth-child(3n) {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/* Keep the card/image filling the normal old template column */
+#posts .portfolio-item,
+#posts-semester-2 .portfolio-item {
+  width: 100% !important;
+  display: block !important;
+}
+
+#posts .portfolio-item img,
+#posts-semester-2 .portfolio-item img {
+  width: 100% !important;
+  display: block !important;
+}
+
+/* =========================================================
+   PORTFOLIO IMAGE REVEAL SNAP FIX
+   ========================================================= */
+
+/* Keep image content hidden until GSAP intentionally reveals it */
+.gsap-reveal-img > .reveal-wrap > .reveal-content,
+.gsap-reveal-img .reveal-wrap .reveal-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Keep the cover above the image during reveal */
+.gsap-reveal-img > .reveal-wrap > .cover,
+.gsap-reveal-img .reveal-wrap .cover {
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Prevent the image itself from flashing independently */
+.gsap-reveal-img > img {
+  opacity: 0;
+  visibility: hidden;
 }
